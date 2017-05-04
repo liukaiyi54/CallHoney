@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2E63F11EBAC51200CCF1C9 /* AddGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E63EF1EBAC51200CCF1C9 /* AddGestureViewController.m */; };
+		4C2E63F21EBAC51200CCF1C9 /* AddGestureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2E63F01EBAC51200CCF1C9 /* AddGestureViewController.xib */; };
+		4C2E63F51EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E63F41EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.m */; };
 		4C31769B1EACDE610029C563 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C31769A1EACDE610029C563 /* main.m */; };
 		4C31769E1EACDE610029C563 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C31769D1EACDE610029C563 /* AppDelegate.m */; };
 		4C3176A11EACDE610029C563 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3176A01EACDE610029C563 /* ViewController.m */; };
 		4C3176A41EACDE610029C563 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3176A21EACDE610029C563 /* Main.storyboard */; };
 		4C3176A61EACDE610029C563 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3176A51EACDE610029C563 /* Assets.xcassets */; };
 		4C3176A91EACDE610029C563 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3176A71EACDE610029C563 /* LaunchScreen.storyboard */; };
+		4C3176B21EADA2BB0029C563 /* GestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3176B11EADA2BB0029C563 /* GestureView.m */; };
+		4C3176B61EADA3DC0029C563 /* KLGestureRecoginzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3176B51EADA3DC0029C563 /* KLGestureRecoginzer.m */; };
+		4C3362A11EB09154003D893D /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3362A01EB09154003D893D /* DataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C2E63EE1EBAC51200CCF1C9 /* AddGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGestureViewController.h; sourceTree = "<group>"; };
+		4C2E63EF1EBAC51200CCF1C9 /* AddGestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGestureViewController.m; sourceTree = "<group>"; };
+		4C2E63F01EBAC51200CCF1C9 /* AddGestureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddGestureViewController.xib; sourceTree = "<group>"; };
+		4C2E63F31EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KLGestureRecoginzer+ArchiveTemplates.h"; sourceTree = "<group>"; };
+		4C2E63F41EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KLGestureRecoginzer+ArchiveTemplates.m"; sourceTree = "<group>"; };
 		4C3176961EACDE600029C563 /* CallHoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CallHoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C31769A1EACDE610029C563 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4C31769C1EACDE610029C563 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +37,12 @@
 		4C3176A51EACDE610029C563 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C3176A81EACDE610029C563 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C3176AA1EACDE610029C563 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C3176B01EADA2BB0029C563 /* GestureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureView.h; sourceTree = "<group>"; };
+		4C3176B11EADA2BB0029C563 /* GestureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureView.m; sourceTree = "<group>"; };
+		4C3176B41EADA3DC0029C563 /* KLGestureRecoginzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLGestureRecoginzer.h; sourceTree = "<group>"; };
+		4C3176B51EADA3DC0029C563 /* KLGestureRecoginzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLGestureRecoginzer.m; sourceTree = "<group>"; };
+		4C33629F1EB09154003D893D /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		4C3362A01EB09154003D893D /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +75,18 @@
 		4C3176981EACDE600029C563 /* CallHoney */ = {
 			isa = PBXGroup;
 			children = (
+				4C3176B31EADA3B30029C563 /* GestureRecognizer */,
 				4C31769C1EACDE610029C563 /* AppDelegate.h */,
 				4C31769D1EACDE610029C563 /* AppDelegate.m */,
 				4C31769F1EACDE610029C563 /* ViewController.h */,
 				4C3176A01EACDE610029C563 /* ViewController.m */,
-				4C3176A21EACDE610029C563 /* Main.storyboard */,
-				4C3176A51EACDE610029C563 /* Assets.xcassets */,
-				4C3176A71EACDE610029C563 /* LaunchScreen.storyboard */,
-				4C3176AA1EACDE610029C563 /* Info.plist */,
+				4C3176B01EADA2BB0029C563 /* GestureView.h */,
+				4C3176B11EADA2BB0029C563 /* GestureView.m */,
+				4C33629F1EB09154003D893D /* DataModel.h */,
+				4C3362A01EB09154003D893D /* DataModel.m */,
+				4C2E63EE1EBAC51200CCF1C9 /* AddGestureViewController.h */,
+				4C2E63EF1EBAC51200CCF1C9 /* AddGestureViewController.m */,
+				4C2E63F01EBAC51200CCF1C9 /* AddGestureViewController.xib */,
 				4C3176991EACDE600029C563 /* Supporting Files */,
 			);
 			path = CallHoney;
@@ -74,9 +95,24 @@
 		4C3176991EACDE600029C563 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C3176A21EACDE610029C563 /* Main.storyboard */,
+				4C3176A51EACDE610029C563 /* Assets.xcassets */,
+				4C3176A71EACDE610029C563 /* LaunchScreen.storyboard */,
+				4C3176AA1EACDE610029C563 /* Info.plist */,
 				4C31769A1EACDE610029C563 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4C3176B31EADA3B30029C563 /* GestureRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				4C3176B41EADA3DC0029C563 /* KLGestureRecoginzer.h */,
+				4C3176B51EADA3DC0029C563 /* KLGestureRecoginzer.m */,
+				4C2E63F31EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.h */,
+				4C2E63F41EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.m */,
+			);
+			path = GestureRecognizer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +177,7 @@
 				4C3176A91EACDE610029C563 /* LaunchScreen.storyboard in Resources */,
 				4C3176A61EACDE610029C563 /* Assets.xcassets in Resources */,
 				4C3176A41EACDE610029C563 /* Main.storyboard in Resources */,
+				4C2E63F21EBAC51200CCF1C9 /* AddGestureViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +190,11 @@
 			files = (
 				4C3176A11EACDE610029C563 /* ViewController.m in Sources */,
 				4C31769E1EACDE610029C563 /* AppDelegate.m in Sources */,
+				4C2E63F51EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.m in Sources */,
+				4C3176B61EADA3DC0029C563 /* KLGestureRecoginzer.m in Sources */,
+				4C3176B21EADA2BB0029C563 /* GestureView.m in Sources */,
+				4C2E63F11EBAC51200CCF1C9 /* AddGestureViewController.m in Sources */,
+				4C3362A11EB09154003D893D /* DataModel.m in Sources */,
 				4C31769B1EACDE610029C563 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +352,7 @@
 				4C3176AF1EACDE610029C563 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
