@@ -1,16 +1,17 @@
 //
-//  GestureView.m
+//  AddGestureView.m
 //  CallHoney
 //
-//  Created by Michael on 24/04/2017.
+//  Created by Michael on 04/05/2017.
 //  Copyright © 2017 Michael. All rights reserved.
 //
 
-#import "GestureView.h"
+#import "AddGestureView.h"
+
 #import "KLGestureRecoginzer+ArchiveTemplates.h"
 #import "DataModel.h"
 
-@interface GestureView() {
+@interface AddGestureView() {
     KLGestureRecoginzer *recognizer;
     CGPoint center;
     float score, angle;
@@ -18,7 +19,8 @@
 
 @end
 
-@implementation GestureView
+@implementation AddGestureView
+
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -27,14 +29,11 @@
     return self;
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    [self setup];
-}
-
 - (void)setup {
     recognizer = [[KLGestureRecoginzer alloc] init];
     [recognizer loadTemplatesFromKeyedArchiver];
+    
+    [self addSubview:self.textField];
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -59,15 +58,10 @@
 
 - (void)processGestureData {
     NSDictionary *gestureDic = [recognizer findBestMatchCenter:&center angle:&angle score:&score];
-    NSString *gestureName = gestureDic.allKeys.firstObject;
-    
-    if (score > 0.6) return; //得分太低，匹配失败
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", gestureName]];
-    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
-}
-
-- (void)loadTemplates {
-    [recognizer loadTemplatesFromKeyedArchiver];
+    NSString *phoneNum = self.textField.text;
+    if (!phoneNum) return;
+    [self.dataModel.templates setValue:gestureDic.allValues.firstObject forKey:phoneNum];
+    [self.dataModel saveTemplates];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -86,6 +80,17 @@
     
     [self processGestureData];
     [self setNeedsDisplay];
+}
+
+- (UITextField *)textField {
+    if (!_textField) {
+        _textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 100, 200, 40)];
+        _textField.keyboardType = UIKeyboardTypePhonePad;
+        _textField.backgroundColor = [UIColor redColor];
+        _textField.rightView = [UIButton buttonWithType:UIButtonTypeContactAdd];
+        _textField.rightViewMode = UITextFieldViewModeAlways;
+    }
+    return _textField;
 }
 
 @end

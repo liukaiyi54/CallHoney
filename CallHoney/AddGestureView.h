@@ -1,18 +1,17 @@
 //
-//  GestureView.h
+//  AddGestureView.h
 //  CallHoney
 //
-//  Created by Michael on 24/04/2017.
+//  Created by Michael on 04/05/2017.
 //  Copyright © 2017 Michael. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "DataModel.h"
 
-@interface GestureView : UIView
+@interface AddGestureView : UIView
 
 @property (nonatomic, strong) DataModel *dataModel;
-
-- (void)loadTemplates;
+@property (nonatomic, strong) UITextField *textField;
 
 @end

@@ -13,7 +13,8 @@
 #import "GestureView.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *button;
+
+@property (nonatomic, strong) GestureView *gestureView;
 
 @end
 
@@ -23,22 +24,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.view addSubview:self.gestureView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     _dataModel = [[DataModel alloc] init];
-    GestureView *gestureView = [[GestureView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
-    gestureView.dataModel = _dataModel;
-    [self.view addSubview:gestureView];
-    
-    [gestureView addSubview:self.button];
+    self.gestureView.dataModel = _dataModel;
+    if ([self.gestureView respondsToSelector:@selector(loadTemplates)]) {
+        [self.gestureView loadTemplates];
+    }
 }
 
 - (IBAction)didTapButton:(id)sender {
     AddGestureViewController *vc = [[AddGestureViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (GestureView *)gestureView {
+    if (!_gestureView) {
+        _gestureView = [[GestureView alloc] init];
+        _gestureView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+    }
+    return _gestureView;
 }
 
 @end
