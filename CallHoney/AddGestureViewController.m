@@ -28,6 +28,13 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
     self.gestureView.textField.rightView = button;
     [button addTarget:self action:@selector(didTapContactButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"archive" style:UIBarButtonItemStylePlain target:self action:@selector(didTapRightButton:)];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+- (void)didTapRightButton:(id)sender {
+    
 }
 
 - (void)didTapContactButton:(id)sender {

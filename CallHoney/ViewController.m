@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title = @"Draw to call";
     [self.view addSubview:self.gestureView];
 }
 
