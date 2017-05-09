@@ -7,8 +7,11 @@
 //
 
 #import "AddGestureViewController.h"
+#import "TemplatesViewController.h"
+
 #import "AddGestureView.h"
 #import "DataModel.h"
+
 #import <Contacts/Contacts.h>
 #import <ContactsUI/ContactsUI.h>
 
@@ -34,7 +37,8 @@
 }
 
 - (void)didTapRightButton:(id)sender {
-    
+    TemplatesViewController *vc = [[TemplatesViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didTapContactButton:(id)sender {

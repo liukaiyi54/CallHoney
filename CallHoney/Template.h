@@ -12,6 +12,6 @@
 
 @property (nonatomic, copy) NSString *phoneNumber;
 @property (nonatomic, copy) NSArray *points;
-@property (nonatomic, copy) NSString *imageFilePath;
+@property (nonatomic, copy) NSString *imageName;
 
 @end

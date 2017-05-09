@@ -10,7 +10,7 @@
 
 static NSString *const kPhoneNumber = @"phoneNumber";
 static NSString *const kPoints = @"points";
-static NSString *const kImageFilePath = @"imageFilePath";
+static NSString *const kImageName = @"imageName";
 
 @implementation Template
 
@@ -19,7 +19,7 @@ static NSString *const kImageFilePath = @"imageFilePath";
     if (self) {
         self.phoneNumber = [aDecoder decodeObjectForKey:kPhoneNumber];
         self.points = [aDecoder decodeObjectForKey:kPoints];
-        self.imageFilePath = [aDecoder decodeObjectForKey:kImageFilePath];
+        self.imageName = [aDecoder decodeObjectForKey:kImageName];
     }
     return self;
 }
@@ -27,7 +27,7 @@ static NSString *const kImageFilePath = @"imageFilePath";
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:_phoneNumber forKey:kPhoneNumber];
     [aCoder encodeObject:_points forKey:kPoints];
-    [aCoder encodeObject:_imageFilePath forKey:kImageFilePath];
+    [aCoder encodeObject:_imageName forKey:kImageName];
 }
 
 @end

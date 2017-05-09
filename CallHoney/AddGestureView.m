@@ -82,7 +82,7 @@
     Template *template = [[Template alloc] init];
     template.phoneNumber = phoneNum;
     template.points = gestureDic.allValues.firstObject;
-    template.imageFilePath = filePath;
+    template.imageName = [NSString stringWithFormat:@"%@.png", phoneNum];
     
     [self.dataModel.templates addObject:template];
     [self.dataModel saveTemplates];
