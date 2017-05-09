@@ -10,6 +10,7 @@
 
 #import "KLGestureRecoginzer+ArchiveTemplates.h"
 #import "DataModel.h"
+#import "Template.h"
 
 @interface AddGestureView() {
     KLGestureRecoginzer *recognizer;
@@ -73,7 +74,17 @@
         imageView.frame = CGRectMake(200, 200, 200, 200);
         [self addSubview:imageView];
     }
-    [self.dataModel.templates setValue:gestureDic.allValues.firstObject forKey:phoneNum];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", phoneNum]];
+    [UIImagePNGRepresentation(self.image) writeToFile:filePath atomically:YES];
+    
+    Template *template = [[Template alloc] init];
+    template.phoneNumber = phoneNum;
+    template.points = gestureDic.allValues.firstObject;
+    template.imageFilePath = filePath;
+    
+    [self.dataModel.templates addObject:template];
     [self.dataModel saveTemplates];
 }
 

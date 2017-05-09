@@ -10,7 +10,7 @@
 
 @interface DataModel : NSObject
 
-@property (nonatomic, strong) NSMutableDictionary *templates;
+@property (nonatomic, strong) NSMutableArray *templates;
 
 - (void)saveTemplates;
 
