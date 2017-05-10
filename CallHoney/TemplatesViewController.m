@@ -63,6 +63,7 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
     return 0.0f;
 }
 
+#pragma mark -
 - (void)configureCollectionView {
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
