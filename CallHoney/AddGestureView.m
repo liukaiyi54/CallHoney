@@ -9,8 +9,6 @@
 #import "AddGestureView.h"
 
 #import "KLGestureRecoginzer+ArchiveTemplates.h"
-#import "DataModel.h"
-#import "Template.h"
 
 @interface AddGestureView() {
     KLGestureRecoginzer *recognizer;
@@ -19,6 +17,8 @@
 }
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, assign) BOOL endDrawing;
+@property (nonatomic, copy) NSDictionary *gestureDict;
+@property (nonatomic, copy) NSString *phoneNum;
 
 @end
 
@@ -37,6 +37,7 @@
     [recognizer loadTemplatesFromKeyedArchiver];
     
     [self addSubview:self.textField];
+    [self addSubview:self.addButton];
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -66,26 +67,24 @@
 }
 
 - (void)processGestureData {
-    NSDictionary *gestureDic = [recognizer findBestMatchCenter:&center angle:&angle score:&score];
-    NSString *phoneNum = self.textField.text;
-    if (!phoneNum || phoneNum.length == 0) return;
-    if (self.image) {
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:self.image];
-        imageView.frame = CGRectMake(200, 200, 200, 200);
-        [self addSubview:imageView];
-    }
+    self.gestureDict = [recognizer findBestMatchCenter:&center angle:&angle score:&score];
+    self.phoneNum = self.textField.text;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", phoneNum]];
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", self.phoneNum]];
     [UIImagePNGRepresentation(self.image) writeToFile:filePath atomically:YES];
-    
-    Template *template = [[Template alloc] init];
-    template.phoneNumber = phoneNum;
-    template.points = gestureDic.allValues.firstObject;
-    template.imageName = [NSString stringWithFormat:@"%@.png", phoneNum];
-    
-    [self.dataModel.templates addObject:template];
-    [self.dataModel saveTemplates];
+}
+
+- (void)didTapAddButton:(id)sender {
+    if (self.addButtonBlock) {
+        Template *template = [[Template alloc] init];
+        template.phoneNumber = self.phoneNum;
+        template.points = self.gestureDict.allValues.firstObject;
+        template.imageName = [NSString stringWithFormat:@"%@.png", self.phoneNum];
+        if (template.phoneNumber && template.points && template.imageName) {
+            self.addButtonBlock(self, template);
+        }
+    }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -108,12 +107,22 @@
 
 - (UITextField *)textField {
     if (!_textField) {
-        _textField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame)/2 - 100, 100, 200, 40)];
+        _textField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame)/2 - 100, 100, 200, 34)];
         _textField.keyboardType = UIKeyboardTypePhonePad;
-        _textField.backgroundColor = [UIColor redColor];
+        _textField.placeholder = @"输入联系人号码";
+        _textField.borderStyle = UITextBorderStyleRoundedRect;
         _textField.rightViewMode = UITextFieldViewModeAlways;
     }
     return _textField;
 }
 
+- (UIButton *)addButton {
+    if (!_addButton) {
+        _addButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame)/2 - 30, CGRectGetHeight(self.frame) - 60, 60, 40)];
+        [_addButton setTitle:@"添加" forState:UIControlStateNormal];
+        [_addButton setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
+        [_addButton addTarget:self action:@selector(didTapAddButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _addButton;
+}
 @end

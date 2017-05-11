@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "DataModel.h"
+#import "Template.h"
+
+@class AddGestureView;
+typedef void(^AddButtonBlock)(AddGestureView *view, Template *temp);
 
 @interface AddGestureView : UIView
 
 @property (nonatomic, strong) DataModel *dataModel;
 @property (nonatomic, strong) UITextField *textField;
+@property (nonatomic, strong) UIButton *addButton;
+
+@property (nonatomic, copy) AddButtonBlock addButtonBlock;
 
 @end
