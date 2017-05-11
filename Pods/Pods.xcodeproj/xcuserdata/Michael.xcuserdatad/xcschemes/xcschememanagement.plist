@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CRToast.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ChameleonFramework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KLCPopup.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,7 +32,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CA494BEA48FE50EF5B6F822E688BAFED</key>
+		<key>75582799E1268EDA36372D5A4E79563B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AB7360021CAA2913AC77DDE689D5A2AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E1E273B59E4A294969A84A6A9BF3A50F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

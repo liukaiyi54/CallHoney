@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '625BC423D5F4BA8215C8A9EA'
-               BlueprintName = 'ChameleonFramework'
+               BlueprintIdentifier = '6EF625D66F78B3F7F2B01A3D'
+               BlueprintName = 'KLCPopup'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'ChameleonFramework.framework'>
+               BuildableName = 'KLCPopup.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
