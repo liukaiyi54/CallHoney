@@ -44,7 +44,7 @@
         self.templates = [unarchiver decodeObjectForKey:@"Templates"];
         [unarchiver finishDecoding];
     } else {
-        self.templates = [[NSMutableArray alloc] init];
+        self.templates = [[NSMutableDictionary alloc] init];
     }
 }
 

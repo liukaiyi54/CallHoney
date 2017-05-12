@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Template.h"
 
 @interface DataModel : NSObject
 
-@property (nonatomic, strong) NSMutableArray *templates;
+@property (nonatomic, strong) NSMutableDictionary *templates;
 
 - (void)saveTemplates;
 

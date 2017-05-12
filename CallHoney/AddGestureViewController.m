@@ -76,7 +76,7 @@
                                       };
             [CRToastManager showNotificationWithOptions:options
                                         completionBlock:nil];
-            [weakSelf.dataModel.templates addObject:temp];
+            [weakSelf.dataModel.templates setValue:temp forKey:temp.phoneNumber];
             [weakSelf.dataModel saveTemplates];
         };
     }

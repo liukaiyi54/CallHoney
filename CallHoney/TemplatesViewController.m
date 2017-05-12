@@ -40,8 +40,8 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCollectionViewCell forIndexPath:indexPath];
     
-    NSArray *templates = self.dataModel.templates;
-    Template *template = templates[indexPath.row];
+    NSDictionary *templates = self.dataModel.templates;
+    Template *template = templates.allValues[indexPath.row];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent: template.imageName];
