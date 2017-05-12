@@ -12,6 +12,8 @@
 #import "DataModel.h"
 #import "GestureView.h"
 
+#import <ChameleonFramework/Chameleon.h>
+
 @interface ViewController ()
 
 @property (nonatomic, strong) GestureView *gestureView;
@@ -26,6 +28,12 @@
     [super viewDidLoad];
     self.title = @"Draw to call";
     [self.view addSubview:self.gestureView];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
+    [self.navigationController setHidesNavigationBarHairline:YES];
+    self.navigationController.navigationBar.barTintColor = [UIColor flatMintColor];
+    self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

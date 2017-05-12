@@ -11,6 +11,8 @@
 
 #import "AddGestureView.h"
 #import "DataModel.h"
+#import "CRToast.h"
+#import <ChameleonFramework/Chameleon.h>
 
 #import <Contacts/Contacts.h>
 #import <ContactsUI/ContactsUI.h>
@@ -62,6 +64,18 @@
         _gestureView.dataModel = self.dataModel;
         __weak typeof(self) weakSelf = self;
         _gestureView.addButtonBlock = ^(AddGestureView *view, Template *temp) {
+            NSDictionary *options = @{
+                                      kCRToastTextKey : @"添加成功",
+                                      kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
+                                      kCRToastBackgroundColorKey : [UIColor flatGreenColor],
+                                      kCRToastAnimationInTypeKey : @(CRToastAnimationTypeGravity),
+                                      kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeGravity),
+                                      kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
+                                      kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionBottom)
+                                      
+                                      };
+            [CRToastManager showNotificationWithOptions:options
+                                        completionBlock:nil];
             [weakSelf.dataModel.templates addObject:temp];
             [weakSelf.dataModel saveTemplates];
         };

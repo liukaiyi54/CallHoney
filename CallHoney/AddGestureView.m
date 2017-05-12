@@ -7,7 +7,6 @@
 //
 
 #import "AddGestureView.h"
-
 #import "KLGestureRecoginzer+ArchiveTemplates.h"
 
 @interface AddGestureView() {
