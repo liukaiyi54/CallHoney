@@ -20,9 +20,7 @@
 
 @end
 
-@implementation ViewController {
-    DataModel *_dataModel;
-}
+@implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,8 +37,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    _dataModel = [[DataModel alloc] init];
-    self.gestureView.dataModel = _dataModel;
     if ([self.gestureView respondsToSelector:@selector(loadTemplates)]) {
         [self.gestureView loadTemplates];
     }

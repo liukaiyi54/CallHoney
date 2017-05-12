@@ -10,12 +10,27 @@
 
 @implementation DataModel
 
-- (id)init {
+static id _instance;
+
+- (instancetype)initPrivate {
     self = [super init];
     if (self) {
         [self loadTemplates];
     }
     return self;
+}
+
+- (instancetype)init {
+    @throw [NSException exceptionWithName:@"IllegalAccessException" reason:@"Use `+ (instancetype)sharedManager` instead" userInfo:nil];
+}
+
++ (instancetype)sharedInstance {
+    @synchronized (self) {
+        if (_instance == nil) {
+            _instance = [[self alloc] initPrivate];
+        }
+    }
+    return _instance;
 }
 
 - (NSString *)documentsDirectory {

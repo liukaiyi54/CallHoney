@@ -15,7 +15,6 @@ typedef void(^AddButtonBlock)(AddGestureView *view, Template *temp);
 
 @interface AddGestureView : UIView
 
-@property (nonatomic, strong) DataModel *dataModel;
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UIButton *addButton;
 

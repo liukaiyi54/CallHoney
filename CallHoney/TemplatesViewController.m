@@ -14,7 +14,6 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
 
 @interface TemplatesViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, strong) DataModel *dataModel;
 
 @end
 
@@ -22,8 +21,6 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.dataModel = [[DataModel alloc] init];
     
     [self configureCollectionView];
 }
@@ -34,13 +31,13 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.dataModel.templates.count;
+    return [DataModel sharedInstance].templates.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCollectionViewCell forIndexPath:indexPath];
     
-    NSDictionary *templates = self.dataModel.templates;
+    NSDictionary *templates = [DataModel sharedInstance].templates;
     Template *template = templates.allValues[indexPath.row];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

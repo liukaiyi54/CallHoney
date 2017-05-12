@@ -19,7 +19,6 @@
 
 @interface AddGestureViewController () <CNContactPickerDelegate>
 
-@property (nonatomic, strong) DataModel *dataModel;
 @property (nonatomic, strong) AddGestureView *gestureView;
 
 @end
@@ -27,7 +26,6 @@
 @implementation AddGestureViewController
 
 - (void)viewDidLoad {
-    self.dataModel = [[DataModel alloc] init];
     [self.view addSubview:self.gestureView];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -61,7 +59,6 @@
 - (AddGestureView *)gestureView {
     if (!_gestureView) {
         _gestureView = [[AddGestureView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
-        _gestureView.dataModel = self.dataModel;
         __weak typeof(self) weakSelf = self;
         _gestureView.addButtonBlock = ^(AddGestureView *view, Template *temp) {
             NSDictionary *options = @{
@@ -76,8 +73,8 @@
                                       };
             [CRToastManager showNotificationWithOptions:options
                                         completionBlock:nil];
-            [weakSelf.dataModel.templates setValue:temp forKey:temp.phoneNumber];
-            [weakSelf.dataModel saveTemplates];
+            [[DataModel sharedInstance].templates setValue:temp forKey:temp.phoneNumber];
+            [[DataModel sharedInstance] saveTemplates];
         };
     }
     return _gestureView;

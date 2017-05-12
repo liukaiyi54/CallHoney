@@ -11,8 +11,6 @@
 
 @interface GestureView : UIView
 
-@property (nonatomic, strong) DataModel *dataModel;
-
 - (void)loadTemplates;
 
 @end

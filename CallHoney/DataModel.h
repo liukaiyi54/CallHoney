@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *templates;
 
++ (instancetype)sharedInstance;
+
 - (void)saveTemplates;
 
 @end
