@@ -45,6 +45,7 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
     
     UIImage *image = [UIImage imageWithContentsOfFile: filePath];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(cell.frame), CGRectGetHeight(cell.frame))];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.image = image;
     [cell addSubview:imageView];
     

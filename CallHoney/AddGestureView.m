@@ -7,6 +7,7 @@
 //
 
 #import "AddGestureView.h"
+#import <ChameleonFramework/Chameleon.h>
 #import "KLGestureRecoginzer+ArchiveTemplates.h"
 
 @interface AddGestureView() {
@@ -119,7 +120,7 @@
     if (!_addButton) {
         _addButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame)/2 - 30, CGRectGetHeight(self.frame) - 60, 60, 40)];
         [_addButton setTitle:@"添加" forState:UIControlStateNormal];
-        [_addButton setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
+        [_addButton setTitleColor:[UIColor flatSkyBlueColor] forState:UIControlStateNormal];
         [_addButton addTarget:self action:@selector(didTapAddButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _addButton;

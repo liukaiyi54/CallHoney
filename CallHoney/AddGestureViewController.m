@@ -47,7 +47,6 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
-
 #pragma mark - delegate
 - (void)contactPicker:(CNContactPickerViewController *)picker didSelectContact:(CNContact *)contact {
     CNPhoneNumber *num = contact.phoneNumbers.firstObject.value;
@@ -59,17 +58,17 @@
 - (AddGestureView *)gestureView {
     if (!_gestureView) {
         _gestureView = [[AddGestureView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
-        __weak typeof(self) weakSelf = self;
         _gestureView.addButtonBlock = ^(AddGestureView *view, Template *temp) {
             NSDictionary *options = @{
                                       kCRToastTextKey : @"添加成功",
                                       kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
-                                      kCRToastBackgroundColorKey : [UIColor flatGreenColor],
+                                      kCRToastBackgroundColorKey : [UIColor flatSkyBlueColor],
                                       kCRToastAnimationInTypeKey : @(CRToastAnimationTypeGravity),
                                       kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeGravity),
                                       kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
-                                      kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionBottom)
-                                      
+                                      kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionBottom),
+                                      kCRToastNotificationTypeKey: @(CRToastTypeNavigationBar),
+                                      kCRToastNotificationPresentationTypeKey: @(CRToastPresentationTypeCover)
                                       };
             [CRToastManager showNotificationWithOptions:options
                                         completionBlock:nil];
