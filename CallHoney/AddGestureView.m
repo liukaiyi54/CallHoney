@@ -18,7 +18,6 @@
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, assign) BOOL endDrawing;
 @property (nonatomic, copy) NSDictionary *gestureDict;
-@property (nonatomic, copy) NSString *phoneNum;
 
 @end
 
@@ -35,7 +34,6 @@
 - (void)setup {
     recognizer = [[KLGestureRecoginzer alloc] init];
     [recognizer loadTemplatesFromKeyedArchiver];
-    
     [self addSubview:self.textField];
     [self addSubview:self.addButton];
 }
@@ -68,19 +66,18 @@
 
 - (void)processGestureData {
     self.gestureDict = [recognizer findBestMatchCenter:&center angle:&angle score:&score];
-    self.phoneNum = self.textField.text;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", self.phoneNum]];
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", self.textField.text]];
     [UIImagePNGRepresentation(self.image) writeToFile:filePath atomically:YES];
 }
 
 - (void)didTapAddButton:(id)sender {
     if (self.addButtonBlock) {
         Template *template = [[Template alloc] init];
-        template.phoneNumber = self.phoneNum;
+        template.phoneNumber = self.textField.text;
         template.points = self.gestureDict.allValues.firstObject;
-        template.imageName = [NSString stringWithFormat:@"%@.png", self.phoneNum];
+        template.imageName = [NSString stringWithFormat:@"%@.png", self.textField.text];
         if (template.phoneNumber && template.points && template.imageName) {
             self.addButtonBlock(self, template);
         }

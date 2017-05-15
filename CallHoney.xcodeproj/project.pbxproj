@@ -23,6 +23,8 @@
 		4CF063681EC0168E00E048C4 /* Template.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF063671EC0168E00E048C4 /* Template.m */; };
 		4CF0636D1EC1A8CF00E048C4 /* TemplatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF0636B1EC1A8CF00E048C4 /* TemplatesViewController.m */; };
 		4CF0636E1EC1A8CF00E048C4 /* TemplatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF0636C1EC1A8CF00E048C4 /* TemplatesViewController.xib */; };
+		4CF063741EC59F0E00E048C4 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF063721EC59F0E00E048C4 /* CollectionViewCell.m */; };
+		4CF063751EC59F0E00E048C4 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF063731EC59F0E00E048C4 /* CollectionViewCell.xib */; };
 		6BC9A3FFCC0768CB4FCCCCF9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA67621067B2711B68F79E2E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,9 @@
 		4CF0636A1EC1A8CF00E048C4 /* TemplatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplatesViewController.h; sourceTree = "<group>"; };
 		4CF0636B1EC1A8CF00E048C4 /* TemplatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplatesViewController.m; sourceTree = "<group>"; };
 		4CF0636C1EC1A8CF00E048C4 /* TemplatesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplatesViewController.xib; sourceTree = "<group>"; };
+		4CF063711EC59F0E00E048C4 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		4CF063721EC59F0E00E048C4 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		4CF063731EC59F0E00E048C4 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		BA67621067B2711B68F79E2E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,6 +108,9 @@
 				4C3176B11EADA2BB0029C563 /* GestureView.m */,
 				4C2E63F61EBB0AAF00CCF1C9 /* AddGestureView.h */,
 				4C2E63F71EBB0AAF00CCF1C9 /* AddGestureView.m */,
+				4CF063711EC59F0E00E048C4 /* CollectionViewCell.h */,
+				4CF063721EC59F0E00E048C4 /* CollectionViewCell.m */,
+				4CF063731EC59F0E00E048C4 /* CollectionViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -245,6 +253,7 @@
 			files = (
 				4C3176A91EACDE610029C563 /* LaunchScreen.storyboard in Resources */,
 				4C3176A61EACDE610029C563 /* Assets.xcassets in Resources */,
+				4CF063751EC59F0E00E048C4 /* CollectionViewCell.xib in Resources */,
 				4C3176A41EACDE610029C563 /* Main.storyboard in Resources */,
 				4CF0636E1EC1A8CF00E048C4 /* TemplatesViewController.xib in Resources */,
 				4C2E63F21EBAC51200CCF1C9 /* AddGestureViewController.xib in Resources */,
@@ -312,6 +321,7 @@
 				4C2E63F81EBB0AAF00CCF1C9 /* AddGestureView.m in Sources */,
 				4C3176B61EADA3DC0029C563 /* KLGestureRecoginzer.m in Sources */,
 				4C3176B21EADA2BB0029C563 /* GestureView.m in Sources */,
+				4CF063741EC59F0E00E048C4 /* CollectionViewCell.m in Sources */,
 				4C2E63F11EBAC51200CCF1C9 /* AddGestureViewController.m in Sources */,
 				4CF063681EC0168E00E048C4 /* Template.m in Sources */,
 				4CF0636D1EC1A8CF00E048C4 /* TemplatesViewController.m in Sources */,

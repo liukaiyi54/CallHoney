@@ -10,6 +10,8 @@
 #import "DataModel.h"
 #import "Template.h"
 
+#import "CollectionViewCell.h"
+
 static NSString *const kCollectionViewCell = @"kCollectionViewCell";
 
 @interface TemplatesViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -35,7 +37,7 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCollectionViewCell forIndexPath:indexPath];
+    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCollectionViewCell forIndexPath:indexPath];
     
     NSDictionary *templates = [DataModel sharedInstance].templates;
     Template *template = templates.allValues[indexPath.row];
@@ -44,21 +46,19 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
     NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent: template.imageName];
     
     UIImage *image = [UIImage imageWithContentsOfFile: filePath];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(cell.frame), CGRectGetHeight(cell.frame))];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.image = image;
-    [cell addSubview:imageView];
+    cell.image = image;
+    cell.num = template.phoneNumber;
     
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat screenWidth = CGRectGetWidth(self.view.frame);
-    return CGSizeMake(screenWidth/2, screenWidth/2);
+    return CGSizeMake(screenWidth/2-10, screenWidth/2+30.0);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 0.0f;
+    return 10.0f;
 }
 
 #pragma mark -
@@ -66,7 +66,8 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kCollectionViewCell];
+    NSString *nibName = NSStringFromClass([CollectionViewCell class]);
+    [self.collectionView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellWithReuseIdentifier:kCollectionViewCell];
 }
 
 @end

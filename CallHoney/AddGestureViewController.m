@@ -57,7 +57,7 @@
 #pragma mark - getter
 - (AddGestureView *)gestureView {
     if (!_gestureView) {
-        _gestureView = [[AddGestureView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
+        _gestureView = [[AddGestureView alloc] initWithFrame:CGRectMake(0, 80, CGRectGetWidth(self.view.frame), CGRectGetWidth(self.view.frame))];
         _gestureView.addButtonBlock = ^(AddGestureView *view, Template *temp) {
             NSDictionary *options = @{
                                       kCRToastTextKey : @"添加成功",
