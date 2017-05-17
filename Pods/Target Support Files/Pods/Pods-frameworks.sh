@@ -86,10 +86,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/CRToast.framework"
   install_framework "Pods/ChameleonFramework.framework"
+  install_framework "Pods/FoldingTabBar.framework"
   install_framework "Pods/KLCPopup.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/CRToast.framework"
   install_framework "Pods/ChameleonFramework.framework"
+  install_framework "Pods/FoldingTabBar.framework"
   install_framework "Pods/KLCPopup.framework"
 fi

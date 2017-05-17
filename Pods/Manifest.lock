@@ -3,16 +3,19 @@ PODS:
     - ChameleonFramework/Default (= 2.0.4)
   - ChameleonFramework/Default (2.0.4)
   - CRToast (0.0.9)
+  - FoldingTabBar (1.0.1)
   - KLCPopup (1.0)
 
 DEPENDENCIES:
   - ChameleonFramework
   - CRToast (~> 0.0.7)
+  - FoldingTabBar
   - KLCPopup
 
 SPEC CHECKSUMS:
   ChameleonFramework: 5abe69b1f2a6cc79c3c435fcd9d3d855748225ee
   CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
+  FoldingTabBar: 3e04c49dbe2b02c529561a4182bf017b928d04d2
   KLCPopup: 76c5a19227977f1e53d85236f9ef42257c168d98
 
 COCOAPODS: 0.39.0

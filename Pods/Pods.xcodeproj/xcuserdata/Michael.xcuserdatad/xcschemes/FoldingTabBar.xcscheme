@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9055F29ED4FF8F9AAEB55BB4'
-               BlueprintName = 'KLCPopup'
+               BlueprintIdentifier = '9B63DF27A0FD5C90ED4F8A2B'
+               BlueprintName = 'FoldingTabBar'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'KLCPopup.framework'>
+               BuildableName = 'FoldingTabBar.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
