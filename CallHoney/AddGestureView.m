@@ -102,6 +102,11 @@
     [self setNeedsDisplay];
 }
 
+- (void)resetView {
+    [recognizer resetTouches];
+    [self setNeedsDisplay];
+}
+
 - (UITextField *)textField {
     if (!_textField) {
         _textField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame)/2 - 100, 100, 200, 34)];

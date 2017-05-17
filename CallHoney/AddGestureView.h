@@ -20,4 +20,6 @@ typedef void(^AddButtonBlock)(AddGestureView *view, Template *temp);
 
 @property (nonatomic, copy) AddButtonBlock addButtonBlock;
 
+- (void)resetView;
+
 @end

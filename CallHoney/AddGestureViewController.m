@@ -74,6 +74,8 @@
                                         completionBlock:nil];
             [[DataModel sharedInstance].templates setValue:temp forKey:temp.phoneNumber];
             [[DataModel sharedInstance] saveTemplates];
+            view.textField.text = @"";
+            [view resetView];
         };
     }
     return _gestureView;
