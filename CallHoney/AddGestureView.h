@@ -11,14 +11,11 @@
 #import "Template.h"
 
 @class AddGestureView;
-typedef void(^AddButtonBlock)(AddGestureView *view, Template *temp);
+typedef void (^AddGestureViewCompletion)(AddGestureView *view, NSArray *points, UIImage *image);
 
 @interface AddGestureView : UIView
 
-@property (nonatomic, strong) UITextField *textField;
-@property (nonatomic, strong) UIButton *addButton;
-
-@property (nonatomic, copy) AddButtonBlock addButtonBlock;
+@property (nonatomic, copy) AddGestureViewCompletion addCompletion;
 
 - (void)resetView;
 

@@ -34,6 +34,12 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
     self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.collectionView reloadData];
+}
+
 #pragma mark - UICollectionViewDelegate & etc
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
