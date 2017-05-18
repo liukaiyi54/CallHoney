@@ -78,7 +78,7 @@
         template.phoneNumber = self.textField.text;
         template.points = self.gestureDict.allValues.firstObject;
         template.imageName = [NSString stringWithFormat:@"%@.png", self.textField.text];
-        if (template.phoneNumber && template.points && template.imageName) {
+        if (template.phoneNumber.length > 0 && template.points && template.imageName.length > 4) {
             self.addButtonBlock(self, template);
         }
     }

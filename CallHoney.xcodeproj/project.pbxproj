@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4C2E63F11EBAC51200CCF1C9 /* AddGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E63EF1EBAC51200CCF1C9 /* AddGestureViewController.m */; };
-		4C2E63F21EBAC51200CCF1C9 /* AddGestureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2E63F01EBAC51200CCF1C9 /* AddGestureViewController.xib */; };
 		4C2E63F51EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E63F41EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.m */; };
 		4C2E63F81EBB0AAF00CCF1C9 /* AddGestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E63F71EBB0AAF00CCF1C9 /* AddGestureView.m */; };
 		4C31769B1EACDE610029C563 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C31769A1EACDE610029C563 /* main.m */; };
@@ -32,7 +31,6 @@
 		23542580A18C753BE627058F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4C2E63EE1EBAC51200CCF1C9 /* AddGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGestureViewController.h; sourceTree = "<group>"; };
 		4C2E63EF1EBAC51200CCF1C9 /* AddGestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGestureViewController.m; sourceTree = "<group>"; };
-		4C2E63F01EBAC51200CCF1C9 /* AddGestureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddGestureViewController.xib; sourceTree = "<group>"; };
 		4C2E63F31EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KLGestureRecoginzer+ArchiveTemplates.h"; sourceTree = "<group>"; };
 		4C2E63F41EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KLGestureRecoginzer+ArchiveTemplates.m"; sourceTree = "<group>"; };
 		4C2E63F61EBB0AAF00CCF1C9 /* AddGestureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGestureView.h; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 				4C3176A01EACDE610029C563 /* ViewController.m */,
 				4C2E63EE1EBAC51200CCF1C9 /* AddGestureViewController.h */,
 				4C2E63EF1EBAC51200CCF1C9 /* AddGestureViewController.m */,
-				4C2E63F01EBAC51200CCF1C9 /* AddGestureViewController.xib */,
 				4CF0636A1EC1A8CF00E048C4 /* TemplatesViewController.h */,
 				4CF0636B1EC1A8CF00E048C4 /* TemplatesViewController.m */,
 			);
@@ -252,7 +249,6 @@
 				4C3176A61EACDE610029C563 /* Assets.xcassets in Resources */,
 				4CF063751EC59F0E00E048C4 /* CollectionViewCell.xib in Resources */,
 				4C3176A41EACDE610029C563 /* Main.storyboard in Resources */,
-				4C2E63F21EBAC51200CCF1C9 /* AddGestureViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
