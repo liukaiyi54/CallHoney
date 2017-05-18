@@ -22,7 +22,6 @@
 		4C3362A11EB09154003D893D /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3362A01EB09154003D893D /* DataModel.m */; };
 		4CF063681EC0168E00E048C4 /* Template.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF063671EC0168E00E048C4 /* Template.m */; };
 		4CF0636D1EC1A8CF00E048C4 /* TemplatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF0636B1EC1A8CF00E048C4 /* TemplatesViewController.m */; };
-		4CF0636E1EC1A8CF00E048C4 /* TemplatesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF0636C1EC1A8CF00E048C4 /* TemplatesViewController.xib */; };
 		4CF063741EC59F0E00E048C4 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF063721EC59F0E00E048C4 /* CollectionViewCell.m */; };
 		4CF063751EC59F0E00E048C4 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF063731EC59F0E00E048C4 /* CollectionViewCell.xib */; };
 		6BC9A3FFCC0768CB4FCCCCF9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA67621067B2711B68F79E2E /* Pods.framework */; };
@@ -58,7 +57,6 @@
 		4CF063671EC0168E00E048C4 /* Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Template.m; sourceTree = "<group>"; };
 		4CF0636A1EC1A8CF00E048C4 /* TemplatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplatesViewController.h; sourceTree = "<group>"; };
 		4CF0636B1EC1A8CF00E048C4 /* TemplatesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplatesViewController.m; sourceTree = "<group>"; };
-		4CF0636C1EC1A8CF00E048C4 /* TemplatesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TemplatesViewController.xib; sourceTree = "<group>"; };
 		4CF063711EC59F0E00E048C4 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		4CF063721EC59F0E00E048C4 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		4CF063731EC59F0E00E048C4 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				4C2E63F01EBAC51200CCF1C9 /* AddGestureViewController.xib */,
 				4CF0636A1EC1A8CF00E048C4 /* TemplatesViewController.h */,
 				4CF0636B1EC1A8CF00E048C4 /* TemplatesViewController.m */,
-				4CF0636C1EC1A8CF00E048C4 /* TemplatesViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -255,7 +252,6 @@
 				4C3176A61EACDE610029C563 /* Assets.xcassets in Resources */,
 				4CF063751EC59F0E00E048C4 /* CollectionViewCell.xib in Resources */,
 				4C3176A41EACDE610029C563 /* Main.storyboard in Resources */,
-				4CF0636E1EC1A8CF00E048C4 /* TemplatesViewController.xib in Resources */,
 				4C2E63F21EBAC51200CCF1C9 /* AddGestureViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

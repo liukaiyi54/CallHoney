@@ -32,8 +32,11 @@
     [button addTarget:self action:@selector(didTapContactButton:) forControlEvents:UIControlEventTouchUpInside];
     self.gestureView.textField.rightView = button;
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"archive" style:UIBarButtonItemStylePlain target:self action:@selector(didTapRightButton:)];
-    self.navigationItem.rightBarButtonItem = item;
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
+    [self.navigationController setHidesNavigationBarHairline:YES];
+    self.navigationController.navigationBar.barTintColor = [UIColor flatMintColor];
+    self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
 }
 
 - (void)didTapRightButton:(id)sender {

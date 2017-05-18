@@ -7,6 +7,8 @@
 //
 
 #import "TemplatesViewController.h"
+#import <ChameleonFramework/Chameleon.h>
+
 #import "DataModel.h"
 #import "Template.h"
 
@@ -25,6 +27,11 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
     [super viewDidLoad];
     
     [self configureCollectionView];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
+    [self.navigationController setHidesNavigationBarHairline:YES];
+    self.navigationController.navigationBar.barTintColor = [UIColor flatMintColor];
+    self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
 }
 
 #pragma mark - UICollectionViewDelegate & etc
