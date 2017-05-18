@@ -42,7 +42,7 @@
     tabBarController.leftBarItems = @[item1, item2];
     
     //prepare rightBarItems
-    YALTabBarItem *item3 = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"chats_icon"]
+    YALTabBarItem *item3 = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"call_icon"]
                                                       leftItemImage:nil
                                                      rightItemImage:nil];
     
