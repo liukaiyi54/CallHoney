@@ -106,7 +106,6 @@
         <!--Item 1-->
         <scene sceneID="3Bw-k8-jnB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l2G-XA-eZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="6Nz-Kd-u7v" customClass="AddGestureViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HOr-GH-9RG"/>
@@ -120,8 +119,9 @@
                     <tabBarItem key="tabBarItem" title="Item 1" id="kwR-R8-Elc"/>
                     <navigationItem key="navigationItem" id="kdp-42-OJx"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2G-XA-eZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-794" y="-671"/>
+            <point key="canvasLocation" x="-794.39999999999998" y="-671.51424287856082"/>
         </scene>
         <!--Folding Tab Bar Controller-->
         <scene sceneID="npB-0X-iEM">

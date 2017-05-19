@@ -42,11 +42,6 @@
     }
 }
 
-- (IBAction)didTapButton:(id)sender {
-    AddGestureViewController *vc = [[AddGestureViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
 - (GestureView *)gestureView {
     if (!_gestureView) {
         _gestureView = [[GestureView alloc] init];
