@@ -8,7 +8,6 @@
 
 #import "CollectionViewCell.h"
 
-#import "YTAnimation.h"
 #import <ChameleonFramework/Chameleon.h>
 
 @interface CollectionViewCell()

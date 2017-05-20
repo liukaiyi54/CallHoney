@@ -19,7 +19,6 @@
 		4C3176B21EADA2BB0029C563 /* GestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3176B11EADA2BB0029C563 /* GestureView.m */; };
 		4C3176B61EADA3DC0029C563 /* KLGestureRecoginzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3176B51EADA3DC0029C563 /* KLGestureRecoginzer.m */; };
 		4C3362A11EB09154003D893D /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3362A01EB09154003D893D /* DataModel.m */; };
-		4C6205621ED088070062AECC /* YTAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6205611ED088070062AECC /* YTAnimation.m */; };
 		4CF063681EC0168E00E048C4 /* Template.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF063671EC0168E00E048C4 /* Template.m */; };
 		4CF0636D1EC1A8CF00E048C4 /* TemplatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF0636B1EC1A8CF00E048C4 /* TemplatesViewController.m */; };
 		4CF063741EC59F0E00E048C4 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF063721EC59F0E00E048C4 /* CollectionViewCell.m */; };
@@ -52,8 +51,6 @@
 		4C3176B51EADA3DC0029C563 /* KLGestureRecoginzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLGestureRecoginzer.m; sourceTree = "<group>"; };
 		4C33629F1EB09154003D893D /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		4C3362A01EB09154003D893D /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
-		4C6205601ED088070062AECC /* YTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTAnimation.h; sourceTree = "<group>"; };
-		4C6205611ED088070062AECC /* YTAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTAnimation.m; sourceTree = "<group>"; };
 		4CF063661EC0168E00E048C4 /* Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Template.h; sourceTree = "<group>"; };
 		4CF063671EC0168E00E048C4 /* Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Template.m; sourceTree = "<group>"; };
 		4CF0636A1EC1A8CF00E048C4 /* TemplatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplatesViewController.h; sourceTree = "<group>"; };
@@ -170,8 +167,6 @@
 		4CF063701EC4142600E048C4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4C6205601ED088070062AECC /* YTAnimation.h */,
-				4C6205611ED088070062AECC /* YTAnimation.m */,
 				4C33629F1EB09154003D893D /* DataModel.h */,
 				4C3362A01EB09154003D893D /* DataModel.m */,
 				4CF063661EC0168E00E048C4 /* Template.h */,
@@ -323,7 +318,6 @@
 				4CF063681EC0168E00E048C4 /* Template.m in Sources */,
 				4CF0636D1EC1A8CF00E048C4 /* TemplatesViewController.m in Sources */,
 				4C3362A11EB09154003D893D /* DataModel.m in Sources */,
-				4C6205621ED088070062AECC /* YTAnimation.m in Sources */,
 				4C31769B1EACDE610029C563 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
