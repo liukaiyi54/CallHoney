@@ -88,6 +88,8 @@
         [self showToastWithText:@"添加成功" color: [UIColor flatSkyBlueColor]];
 
         self.textField.text = @"";
+        self.points = @[];
+        self.image = nil;
         [self.gestureView resetView];
     }
 }
@@ -181,7 +183,7 @@
 - (UIButton *)addButton {
     if (!_addButton) {
         _addButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) - 20 - 78, CGRectGetMaxY(self.gestureView.frame) + 60, 78, 44)];
-        [_addButton setTitle:@"添加" forState:UIControlStateNormal];
+        [_addButton setTitle:@"完成" forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1] forState:UIControlStateNormal];
         [_addButton addTarget:self action:@selector(didTapAddButton:) forControlEvents:UIControlEventTouchUpInside];
         _addButton.layer.borderColor = [UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1].CGColor;
