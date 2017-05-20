@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Draw to call";
+    self.title = @"画手势打电话";
     [self.view addSubview:self.gestureView];
     
     [self.navigationController.navigationBar setTitleTextAttributes:

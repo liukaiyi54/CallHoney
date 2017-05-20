@@ -25,6 +25,8 @@
 @property (nonatomic, strong) UIButton *addButton;
 @property (nonatomic, copy) NSArray *points;
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) UIImageView *downArrow;
+@property (nonatomic, strong) UIImageView *rightArrow;
 
 @end
 
@@ -32,15 +34,19 @@
 
 - (void)viewDidLoad {
     [self setupForDismissKeyboard];
+    self.title = @"添加手势与号码";
     
-    UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(19, 99, CGRectGetWidth(self.view.frame)-38, CGRectGetWidth(self.view.frame)-38)];
+    UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(19, 71, CGRectGetWidth(self.view.frame)-38, CGRectGetWidth(self.view.frame)-38)];
     dummyView.layer.cornerRadius = 8.0f;
-    dummyView.backgroundColor = [UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1];
+    dummyView.layer.borderWidth = 1.0f;
+    dummyView.layer.borderColor = [UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1].CGColor;
     [self.view addSubview:dummyView];
     
     [self.view addSubview:self.gestureView];
     [self.view addSubview:self.textField];
+    [self.view addSubview:self.downArrow];
     [self.view addSubview:self.addButton];
+    [self.view addSubview:self.rightArrow];
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
@@ -63,7 +69,7 @@
     }
     
     if (self.textField.text.length == 0) {
-        [self showToastWithText:@"添加个手机先" color:[UIColor flatYellowColor]];
+        [self showToastWithText:@"添加个手机号先" color:[UIColor flatYellowColor]];
         return;
     }
     
@@ -110,7 +116,11 @@
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    CGFloat offset = self.view.frame.size.height - (textField.frame.origin.y + textField.frame.size.height + 216);
+    CGFloat extraPaddingForPlus = 0;
+    if (CGRectGetHeight(self.view.frame) > 700) {
+        extraPaddingForPlus = 10.0f;
+    }
+    CGFloat offset = self.view.frame.size.height - (textField.frame.origin.y + textField.frame.size.height + 216 + extraPaddingForPlus);
     if (offset <= 0) {
         [UIView animateWithDuration:0.3 animations:^{
             CGRect frame = self.view.frame;
@@ -133,8 +143,7 @@
 #pragma mark - getter
 - (AddGestureView *)gestureView {
     if (!_gestureView) {
-        _gestureView = [[AddGestureView alloc] initWithFrame:CGRectMake(23, 103, CGRectGetWidth(self.view.frame)-44, CGRectGetWidth(self.view.frame)-44)];
-
+        _gestureView = [[AddGestureView alloc] initWithFrame:CGRectMake(22, 74, CGRectGetWidth(self.view.frame)-44, CGRectGetWidth(self.view.frame)-44)];
         __weak typeof(self) weakSelf = self;
         _gestureView.addCompletion = ^(AddGestureView *view, NSArray *points, UIImage *image) {
             weakSelf.points = points;
@@ -146,7 +155,11 @@
 
 - (UITextField *)textField {
     if (!_textField) {
-        _textField = [[UITextField alloc] initWithFrame:CGRectMake(22, CGRectGetMaxY(self.gestureView.frame) + 20, 200, 44)];
+        CGFloat extraPaddingForSE = 0;
+        if (CGRectGetWidth(self.view.frame) == 320) {
+            extraPaddingForSE = 20;
+        }
+        _textField = [[UITextField alloc] initWithFrame:CGRectMake(22, CGRectGetMaxY(self.gestureView.frame) + 60, 180 - extraPaddingForSE, 44)];
         _textField.keyboardType = UIKeyboardTypePhonePad;
         _textField.placeholder = @"输入联系人号码";
         _textField.borderStyle = UITextBorderStyleRoundedRect;
@@ -167,7 +180,7 @@
 
 - (UIButton *)addButton {
     if (!_addButton) {
-        _addButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.textField.frame) + 32, CGRectGetMaxY(self.gestureView.frame) + 20, 60, 44)];
+        _addButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) - 20 - 78, CGRectGetMaxY(self.gestureView.frame) + 60, 78, 44)];
         [_addButton setTitle:@"添加" forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1] forState:UIControlStateNormal];
         [_addButton addTarget:self action:@selector(didTapAddButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -176,6 +189,23 @@
         _addButton.layer.borderWidth = 1.0f;
     }
     return _addButton;
+}
+
+- (UIImageView *)downArrow {
+    if (!_downArrow) {
+        _downArrow = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMidX(self.textField.frame) - 20, CGRectGetMaxY(self.gestureView.frame) + 10, 38, 38)];
+        _downArrow.image = [UIImage imageNamed:@"down_arrow"];
+    }
+    return _downArrow;
+}
+
+- (UIImageView *)rightArrow {
+    if (!_rightArrow) {
+        CGFloat x = (CGRectGetMinX(self.addButton.frame) - CGRectGetMaxX(self.textField.frame)) / 2 - 19 + CGRectGetMaxX(self.textField.frame);
+        _rightArrow = [[UIImageView alloc] initWithFrame:CGRectMake(x, CGRectGetMidY(self.textField.frame) - 20, 38, 38)];
+        _rightArrow.image = [UIImage imageNamed:@"right_arrow"];
+    }
+    return _rightArrow;
 }
 
 #pragma mark - private

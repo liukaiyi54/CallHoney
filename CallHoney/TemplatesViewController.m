@@ -26,6 +26,7 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"手势号码对照表";
     [self configureCollectionView];
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
