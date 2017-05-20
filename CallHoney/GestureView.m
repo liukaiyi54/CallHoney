@@ -61,9 +61,9 @@
     NSDictionary *gestureDic = [recognizer findBestMatchCenter:&center angle:&angle score:&score];
     NSString *gestureName = gestureDic.allKeys.firstObject;
     
-    if (score > 0.5) return; //得分太低，匹配失败
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", gestureName]];
-    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+    if (self.gestureViewBlock) {
+        self.gestureViewBlock(self, score, gestureName);
+    }
 }
 
 - (void)loadTemplates {

@@ -105,7 +105,8 @@
                               kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionBottom),
                               kCRToastNotificationTypeKey: @(CRToastTypeNavigationBar),
                               kCRToastFontKey: [UIFont systemFontOfSize:16],
-                              kCRToastNotificationPresentationTypeKey: @(CRToastPresentationTypeCover)
+                              kCRToastNotificationPresentationTypeKey: @(CRToastPresentationTypeCover),
+                              kCRToastTimeIntervalKey: @(0.6)
                               };
     [CRToastManager showNotificationWithOptions:options completionBlock:nil];
 }

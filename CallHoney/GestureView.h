@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "DataModel.h"
 
+@class GestureView;
+typedef void(^GestureViewBlock)(GestureView *view, float score, NSString *phoneNum);
+
 @interface GestureView : UIView
+
+@property (nonatomic, copy) GestureViewBlock gestureViewBlock;
 
 - (void)loadTemplates;
 
