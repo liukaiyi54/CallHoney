@@ -72,7 +72,9 @@
             }
             
             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phoneNum]];
-            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
+                [view resetView];
+            }];
         };
     }
     return _gestureView;

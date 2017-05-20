@@ -17,5 +17,6 @@ typedef void(^GestureViewBlock)(GestureView *view, float score, NSString *phoneN
 @property (nonatomic, copy) GestureViewBlock gestureViewBlock;
 
 - (void)loadTemplates;
+- (void)resetView;
 
 @end
