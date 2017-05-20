@@ -44,7 +44,7 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
         self.navigationItem.rightBarButtonItem = nil;
     } else {
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"edit"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapEdit:)];
-        [item setImageInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
+        [item setImageInsets:UIEdgeInsetsMake(5, 10, 5, 0)];
         self.navigationItem.rightBarButtonItem = item;
     }
     

@@ -64,12 +64,12 @@
 
 - (void)didTapAddButton:(id)sender {
     if (!self.image) {
-        [self showToastWithText:@"添加个手势先" color:[UIColor flatYellowColor]];
+        [self showToastWithText:@"添加个手势先" color:[UIColor flatYellowColor] completionBlock:nil];
         return;
     }
     
     if (self.textField.text.length == 0) {
-        [self showToastWithText:@"添加个手机号先" color:[UIColor flatYellowColor]];
+        [self showToastWithText:@"添加个手机号先" color:[UIColor flatYellowColor] completionBlock:nil];
         return;
     }
     
@@ -85,16 +85,16 @@
         
         [[DataModel sharedInstance].templates setValue:template forKey:template.phoneNumber];
         [[DataModel sharedInstance] saveTemplates];
-        [self showToastWithText:@"添加成功" color: [UIColor flatSkyBlueColor]];
-
-        self.textField.text = @"";
-        self.points = @[];
-        self.image = nil;
-        [self.gestureView resetView];
+        [self showToastWithText:@"添加成功" color:[UIColor flatSkyBlueColor] completionBlock:^{
+            self.textField.text = @"";
+            self.points = @[];
+            self.image = nil;
+            [self.gestureView resetView];
+        }];
     }
 }
 
-- (void)showToastWithText:(NSString *)text color:(UIColor *)color {
+- (void)showToastWithText:(NSString *)text color:(UIColor *)color completionBlock:(void (^)(void))completionBlock {
     NSDictionary *options = @{
                               kCRToastTextKey : text,
                               kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
@@ -108,7 +108,7 @@
                               kCRToastNotificationPresentationTypeKey: @(CRToastPresentationTypeCover),
                               kCRToastTimeIntervalKey: @(0.6)
                               };
-    [CRToastManager showNotificationWithOptions:options completionBlock:nil];
+    [CRToastManager showNotificationWithOptions:options completionBlock:completionBlock];
 }
 
 #pragma mark - delegate
