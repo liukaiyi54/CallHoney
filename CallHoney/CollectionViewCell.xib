@@ -31,13 +31,23 @@
                         <color key="textColor" red="0.42655369639396667" green="0.47584608197212219" blue="0.48026475310325623" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2He-L8-ElL">
+                        <rect key="frame" x="160" y="0.0" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="Zqm-Gr-diG"/>
+                            <constraint firstAttribute="width" constant="32" id="fFO-vu-ozm"/>
+                        </constraints>
+                        <state key="normal" image="clear"/>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="2He-L8-ElL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="C2X-xB-ie4"/>
                 <constraint firstItem="6XO-Wm-c4o" firstAttribute="top" secondItem="rud-fT-eZn" secondAttribute="bottom" id="F0Y-sG-xyF"/>
                 <constraint firstItem="6XO-Wm-c4o" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ktu-N4-49s"/>
                 <constraint firstItem="rud-fT-eZn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PpW-D2-izq"/>
+                <constraint firstAttribute="trailing" secondItem="2He-L8-ElL" secondAttribute="trailing" id="Tib-JD-8W9"/>
                 <constraint firstAttribute="trailing" secondItem="rud-fT-eZn" secondAttribute="trailing" id="Y4L-7z-7EW"/>
                 <constraint firstItem="rud-fT-eZn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ylb-MQ-g62"/>
                 <constraint firstAttribute="bottom" secondItem="6XO-Wm-c4o" secondAttribute="bottom" id="eCt-go-zoC"/>
@@ -45,10 +55,14 @@
             </constraints>
             <size key="customSize" width="192" height="256"/>
             <connections>
+                <outlet property="deleteButton" destination="2He-L8-ElL" id="RAW-qn-BFk"/>
                 <outlet property="imageView" destination="rud-fT-eZn" id="s6U-wT-pkb"/>
                 <outlet property="numLabel" destination="6XO-Wm-c4o" id="Mth-eL-0t4"/>
             </connections>
             <point key="canvasLocation" x="1" y="131"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="clear" width="64" height="64"/>
+    </resources>
 </document>

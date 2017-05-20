@@ -8,11 +8,13 @@
 
 #import "CollectionViewCell.h"
 
+#import "YTAnimation.h"
 #import <ChameleonFramework/Chameleon.h>
 
 @interface CollectionViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @end
 
@@ -24,6 +26,14 @@
     self.layer.borderColor = [UIColor flatMintColor].CGColor;
     self.layer.borderWidth = 1.0f;
     self.layer.cornerRadius = 4.0f;
+    
+    [self.deleteButton addTarget:self action:@selector(didTapDeleteButton:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)didTapDeleteButton:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(deleteCell:)]) {
+        [self.delegate deleteCell:self];
+    }
 }
 
 - (void)setImage:(UIImage *)image {
@@ -34,6 +44,15 @@
 - (void)setNum:(NSString *)num {
     _num = [num copy];
     self.numLabel.text = _num;
+}
+
+- (void)setHideDeleteButton:(BOOL)hideDeleteButton {
+    _hideDeleteButton = hideDeleteButton;
+    if (_hideDeleteButton) {
+        self.deleteButton.hidden = YES;
+    } else {
+        self.deleteButton.hidden = NO;
+    }
 }
 
 @end
