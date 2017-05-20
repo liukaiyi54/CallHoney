@@ -64,12 +64,12 @@
 
 - (void)didTapAddButton:(id)sender {
     if (!self.image) {
-        [self showToastWithText:@"添加个手势先" color:[UIColor flatYellowColor] completionBlock:nil];
+        [self showToastWithText:@"好啥好？添加个手势先" color:[UIColor flatYellowColor] completionBlock:nil];
         return;
     }
     
     if (self.textField.text.length == 0) {
-        [self showToastWithText:@"添加个手机号先" color:[UIColor flatYellowColor] completionBlock:nil];
+        [self showToastWithText:@"好啥好？添加个手机号先" color:[UIColor flatYellowColor] completionBlock:nil];
         return;
     }
     
@@ -106,7 +106,7 @@
                               kCRToastNotificationTypeKey: @(CRToastTypeNavigationBar),
                               kCRToastFontKey: [UIFont systemFontOfSize:16],
                               kCRToastNotificationPresentationTypeKey: @(CRToastPresentationTypeCover),
-                              kCRToastTimeIntervalKey: @(0.6)
+                              kCRToastTimeIntervalKey: @(1.0)
                               };
     [CRToastManager showNotificationWithOptions:options completionBlock:completionBlock];
 }
@@ -184,7 +184,7 @@
 - (UIButton *)addButton {
     if (!_addButton) {
         _addButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) - 20 - 78, CGRectGetMaxY(self.gestureView.frame) + 60, 78, 44)];
-        [_addButton setTitle:@"完成" forState:UIControlStateNormal];
+        [_addButton setTitle:@"好了" forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1] forState:UIControlStateNormal];
         [_addButton addTarget:self action:@selector(didTapAddButton:) forControlEvents:UIControlEventTouchUpInside];
         _addButton.layer.borderColor = [UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1].CGColor;

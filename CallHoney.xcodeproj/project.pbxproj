@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C1A7FA41ED0A06600E188F8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1A7FA31ED0A06600E188F8 /* SettingsViewController.m */; };
 		4C2E63F11EBAC51200CCF1C9 /* AddGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E63EF1EBAC51200CCF1C9 /* AddGestureViewController.m */; };
 		4C2E63F51EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E63F41EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.m */; };
 		4C2E63F81EBB0AAF00CCF1C9 /* AddGestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E63F71EBB0AAF00CCF1C9 /* AddGestureView.m */; };
@@ -29,6 +30,8 @@
 /* Begin PBXFileReference section */
 		13BEA2E1A2A694C2561FB20D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		23542580A18C753BE627058F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4C1A7FA21ED0A06600E188F8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		4C1A7FA31ED0A06600E188F8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		4C2E63EE1EBAC51200CCF1C9 /* AddGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGestureViewController.h; sourceTree = "<group>"; };
 		4C2E63EF1EBAC51200CCF1C9 /* AddGestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGestureViewController.m; sourceTree = "<group>"; };
 		4C2E63F31EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KLGestureRecoginzer+ArchiveTemplates.h"; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 				4C2E63EF1EBAC51200CCF1C9 /* AddGestureViewController.m */,
 				4CF0636A1EC1A8CF00E048C4 /* TemplatesViewController.h */,
 				4CF0636B1EC1A8CF00E048C4 /* TemplatesViewController.m */,
+				4C1A7FA21ED0A06600E188F8 /* SettingsViewController.h */,
+				4C1A7FA31ED0A06600E188F8 /* SettingsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				4CF0636D1EC1A8CF00E048C4 /* TemplatesViewController.m in Sources */,
 				4C3362A11EB09154003D893D /* DataModel.m in Sources */,
 				4C31769B1EACDE610029C563 /* main.m in Sources */,
+				4C1A7FA41ED0A06600E188F8 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

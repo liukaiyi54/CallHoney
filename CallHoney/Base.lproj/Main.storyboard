@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F71b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lCZ-1y-Tuh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G8c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lCZ-1y-Tuh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -66,7 +66,7 @@
         <!--Item 4-->
         <scene sceneID="jry-bZ-h7N">
             <objects>
-                <viewController id="omk-nF-N1a" userLabel="Item 4" sceneMemberID="viewController">
+                <viewController id="omk-nF-N1a" userLabel="Item 4" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wBs-cj-Tfb"/>
                         <viewControllerLayoutGuide type="bottom" id="yqy-Ym-vTq"/>
@@ -74,7 +74,44 @@
                     <view key="view" contentMode="scaleToFill" id="kA1-XI-HlN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有乱七八糟的设置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhr-ky-o5S">
+                                <rect key="frame" x="102" y="128" width="171" height="27"/>
+                                <fontDescription key="fontDescription" name="PingFangHK-Regular" family="PingFang HK" pointSize="19"/>
+                                <color key="textColor" red="0.18198148906230927" green="0.69426733255386353" blue="0.53024792671203613" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="就是这么简洁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNF-C7-PX1">
+                                <rect key="frame" x="125" y="192" width="126" height="29.5"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="21"/>
+                                <color key="textColor" red="0.1819814891" green="0.69426733259999995" blue="0.53024792669999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你没办法" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUx-5K-ks6">
+                                <rect key="frame" x="142" y="260.5" width="92" height="32.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="23"/>
+                                <color key="textColor" red="0.1819814891" green="0.69426733259999995" blue="0.53024792669999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sowaht" translatesAutoresizingMaskIntoConstraints="NO" id="dvE-Dt-5Cx">
+                                <rect key="frame" x="112.5" y="334" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Fbp-3G-cbf"/>
+                                    <constraint firstAttribute="height" constant="150" id="qEe-D5-GrP"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CNF-C7-PX1" firstAttribute="centerX" secondItem="kA1-XI-HlN" secondAttribute="centerX" id="25j-ec-Ng1"/>
+                            <constraint firstItem="xUx-5K-ks6" firstAttribute="top" secondItem="CNF-C7-PX1" secondAttribute="bottom" constant="39" id="3az-jg-kb6"/>
+                            <constraint firstItem="mhr-ky-o5S" firstAttribute="centerX" secondItem="kA1-XI-HlN" secondAttribute="centerX" id="AV7-Lh-O3e"/>
+                            <constraint firstItem="dvE-Dt-5Cx" firstAttribute="top" secondItem="xUx-5K-ks6" secondAttribute="bottom" constant="41" id="B2t-FL-cU7"/>
+                            <constraint firstItem="dvE-Dt-5Cx" firstAttribute="centerX" secondItem="kA1-XI-HlN" secondAttribute="centerX" id="fkm-de-ebm"/>
+                            <constraint firstItem="mhr-ky-o5S" firstAttribute="top" secondItem="wBs-cj-Tfb" secondAttribute="bottom" constant="64" id="gQc-BR-fBR"/>
+                            <constraint firstItem="xUx-5K-ks6" firstAttribute="centerX" secondItem="kA1-XI-HlN" secondAttribute="centerX" id="rOj-E2-Ljr"/>
+                            <constraint firstItem="CNF-C7-PX1" firstAttribute="top" secondItem="mhr-ky-o5S" secondAttribute="bottom" constant="37" id="yqS-SC-xe0"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="0bg-KP-JdL"/>
                     <navigationItem key="navigationItem" id="l0H-b7-hii"/>
@@ -202,4 +239,7 @@
             <point key="canvasLocation" x="-714" y="-18"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sowaht" width="400" height="400"/>
+    </resources>
 </document>
