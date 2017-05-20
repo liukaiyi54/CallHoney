@@ -24,15 +24,13 @@
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UIButton *addButton;
 @property (nonatomic, copy) NSArray *points;
-@property (nonatomic, strong) Template *template;
+@property (nonatomic, strong) UIImage *image;
 
 @end
 
 @implementation AddGestureViewController
 
 - (void)viewDidLoad {
-    self.template = [[Template alloc] init];
-    
     [self setupForDismissKeyboard];
     
     UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(19, 99, CGRectGetWidth(self.view.frame)-38, CGRectGetWidth(self.view.frame)-38)];
@@ -59,7 +57,7 @@
 }
 
 - (void)didTapAddButton:(id)sender {
-    if (!self.template.points) {
+    if (!self.image) {
         [self showToastWithText:@"添加个手势先" color:[UIColor flatYellowColor]];
         return;
     }
@@ -69,9 +67,17 @@
         return;
     }
     
-    if (self.textField.text.length > 0 && self.template.points) {
-        self.template.phoneNumber = self.textField.text;
-        [[DataModel sharedInstance].templates setValue:self.template forKey:self.template.phoneNumber];
+    if (self.textField.text.length > 0 && self.image) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", self.textField.text]];
+        [UIImagePNGRepresentation(self.image) writeToFile:filePath atomically:YES];
+        
+        Template *template = [[Template alloc] init];
+        template.phoneNumber = self.textField.text;
+        template.imageName = [NSString stringWithFormat:@"%@.png", self.textField.text];
+        template.points = self.points;
+        
+        [[DataModel sharedInstance].templates setValue:template forKey:template.phoneNumber];
         [[DataModel sharedInstance] saveTemplates];
         [self showToastWithText:@"添加成功" color: [UIColor flatSkyBlueColor]];
 
@@ -131,12 +137,8 @@
 
         __weak typeof(self) weakSelf = self;
         _gestureView.addCompletion = ^(AddGestureView *view, NSArray *points, UIImage *image) {
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", weakSelf.textField.text]];
-            [UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
-            
-            weakSelf.template.points = points;
-            weakSelf.template.imageName = [NSString stringWithFormat:@"%@.png", weakSelf.textField.text];
+            weakSelf.points = points;
+            weakSelf.image = image;
         };
     }
     return _gestureView;
