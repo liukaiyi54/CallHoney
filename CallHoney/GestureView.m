@@ -10,11 +10,16 @@
 #import "KLGestureRecoginzer+ArchiveTemplates.h"
 #import "DataModel.h"
 
+#import <ChameleonFramework/Chameleon.h>
+
 @interface GestureView() {
     KLGestureRecoginzer *recognizer;
     CGPoint center;
     float score, angle;
 }
+
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, assign) BOOL fingerMoved;
 
 @end
 
@@ -35,17 +40,24 @@
 - (void)setup {
     recognizer = [[KLGestureRecoginzer alloc] init];
     [recognizer loadTemplatesFromKeyedArchiver];
+    self.opaque = NO;
 }
 
 - (void)drawRect:(CGRect)rect {
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGContextSetRGBFillColor(ctx, 1, 1, 1, 1);
-    CGContextSetRGBStrokeColor(ctx, 0.51, 0.85, 0.81, 1);
-    CGContextSetLineWidth(ctx, 3.0);
-    CGContextFillRect(ctx, rect);
+    [self.image drawInRect:self.bounds];
+}
+
+#pragma mark - private
+- (void)drawNewLine {
+    UIGraphicsBeginImageContext(self.bounds.size);
+    [self.image drawInRect:self.bounds];
     
-    CGContextSetTextDrawingMode(ctx, kCGTextFillStroke);
-    CGContextSetTextMatrix(ctx, CGAffineTransformMakeScale(1, -1));
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetRGBStrokeColor(ctx, 0.51, 0.85, 0.81, 1);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 4.0);
+    CGContextBeginPath(ctx);
     
     for (NSValue *pointValue in [recognizer touchPoints]) {
         CGPoint pointInView = [pointValue CGPointValue];
@@ -54,7 +66,12 @@
         else
             CGContextAddLineToPoint(ctx, pointInView.x, pointInView.y);
     }
-    CGContextStrokePath(ctx);
+    
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self setNeedsDisplay];
 }
 
 - (void)processGestureData {
@@ -66,29 +83,33 @@
     }
 }
 
+#pragma mark - public
 - (void)loadTemplates {
     [recognizer loadTemplatesFromKeyedArchiver];
 }
 
 - (void)resetView {
     [recognizer resetTouches];
+    self.image = nil;
     [self setNeedsDisplay];
 }
 
+#pragma mark - override
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [recognizer resetTouches];
     [recognizer addTouches:touches fromView:self];
+    self.image = nil;
     [self setNeedsDisplay];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     [recognizer addTouches:touches fromView:self];
-    [self setNeedsDisplay];
+    [self drawNewLine];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [recognizer addTouches:touches fromView:self];
-    
+    [self drawNewLine];
     [self processGestureData];
 }
 

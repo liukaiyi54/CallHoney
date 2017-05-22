@@ -62,6 +62,10 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (IBAction)didTapClose:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)didTapAddButton:(id)sender {
     if (!self.image) {
         [self showToastWithText:@"好啥好？添加个手势先" color:[UIColor flatYellowColor] completionBlock:nil];

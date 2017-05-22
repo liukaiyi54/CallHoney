@@ -12,6 +12,7 @@
 #import "DataModel.h"
 #import "GestureView.h"
 #import "CRToast.h"
+#import "UINavigationBar+Awesome.h"
 
 #import <ChameleonFramework/Chameleon.h>
 
@@ -25,14 +26,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"画手势打电话";
+    self.title = @"Draw & Call";
     [self.view addSubview:self.gestureView];
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
     [self.navigationController setHidesNavigationBarHairline:YES];
-    self.navigationController.navigationBar.barTintColor = [UIColor flatMintColor];
     self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
+    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -43,7 +44,7 @@
     }
 }
 
-- (void)showToastWithText:(NSString *)text color:(UIColor *)color {
+- (void)showToastWithText:(NSString *)text color:(UIColor *)color completionBlock:(void (^)(void))completionBlock{
     NSDictionary *options = @{
                               kCRToastTextKey : text,
                               kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
@@ -57,7 +58,7 @@
                               kCRToastNotificationPresentationTypeKey: @(CRToastPresentationTypeCover),
                               kCRToastTimeIntervalKey: @(0.6)
                               };
-    [CRToastManager showNotificationWithOptions:options completionBlock:nil];
+    [CRToastManager showNotificationWithOptions:options completionBlock:completionBlock];
 }
 
 - (GestureView *)gestureView {
@@ -67,14 +68,16 @@
         __weak typeof(self) weakSelf = self;
         _gestureView.gestureViewBlock = ^(GestureView *view, float score, NSString *phoneNum) {
             if (score > 0.5) {
-                [weakSelf showToastWithText:@"没有匹配成功哦" color:[UIColor flatYellowColor]];
-                return; //得分太低，匹配失败
+                [weakSelf showToastWithText:@"没有匹配成功哦" color:[UIColor flatYellowColor] completionBlock:^{
+                    [view resetView];
+                }];
+                return;
+            } else {
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phoneNum]];
+                [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
+                    [view resetView];
+                }];
             }
-            
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phoneNum]];
-            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
-                [view resetView];
-            }];
         };
     }
     return _gestureView;
