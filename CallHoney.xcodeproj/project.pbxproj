@@ -20,10 +20,18 @@
 		4C3176B21EADA2BB0029C563 /* GestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3176B11EADA2BB0029C563 /* GestureView.m */; };
 		4C3176B61EADA3DC0029C563 /* KLGestureRecoginzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3176B51EADA3DC0029C563 /* KLGestureRecoginzer.m */; };
 		4C3362A11EB09154003D893D /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3362A01EB09154003D893D /* DataModel.m */; };
-		4C8C6AE41ED2C50300346A1F /* mountain.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C6AE31ED2C50300346A1F /* mountain.jpeg */; };
+		4C8C6AE41ED2C50300346A1F /* fuji.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C6AE31ED2C50300346A1F /* fuji.jpeg */; };
 		4C8C6AE81ED2C65800346A1F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8C6AE71ED2C65800346A1F /* UINavigationBar+Awesome.m */; };
 		4C8C6AEA1ED2C6CE00346A1F /* balloon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C6AE91ED2C6CE00346A1F /* balloon.jpeg */; };
 		4C8C6AEC1ED2D83C00346A1F /* deer.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C6AEB1ED2D83C00346A1F /* deer.jpeg */; };
+		4C8C6AF71ED3CC5300346A1F /* star.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C6AF61ED3CC5300346A1F /* star.jpeg */; };
+		4C8C6AFD1ED3D50E00346A1F /* building.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C6AF81ED3D50E00346A1F /* building.jpeg */; };
+		4C8C6AFE1ED3D50E00346A1F /* mountain.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C6AF91ED3D50E00346A1F /* mountain.jpeg */; };
+		4C8C6AFF1ED3D50E00346A1F /* lake.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C6AFA1ED3D50E00346A1F /* lake.jpeg */; };
+		4C8C6B001ED3D50E00346A1F /* lamp.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C6AFB1ED3D50E00346A1F /* lamp.jpeg */; };
+		4C8C6B011ED3D50E00346A1F /* mosaic.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C6AFC1ED3D50E00346A1F /* mosaic.jpeg */; };
+		4C8C6B081ED4155600346A1F /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8C6B061ED4155600346A1F /* ImageCollectionViewCell.m */; };
+		4C8C6B091ED4155600346A1F /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C6B071ED4155600346A1F /* ImageCollectionViewCell.xib */; };
 		4CF063681EC0168E00E048C4 /* Template.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF063671EC0168E00E048C4 /* Template.m */; };
 		4CF0636D1EC1A8CF00E048C4 /* TemplatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF0636B1EC1A8CF00E048C4 /* TemplatesViewController.m */; };
 		4CF063741EC59F0E00E048C4 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF063721EC59F0E00E048C4 /* CollectionViewCell.m */; };
@@ -58,11 +66,20 @@
 		4C3176B51EADA3DC0029C563 /* KLGestureRecoginzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLGestureRecoginzer.m; sourceTree = "<group>"; };
 		4C33629F1EB09154003D893D /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		4C3362A01EB09154003D893D /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
-		4C8C6AE31ED2C50300346A1F /* mountain.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mountain.jpeg; sourceTree = "<group>"; };
+		4C8C6AE31ED2C50300346A1F /* fuji.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fuji.jpeg; sourceTree = "<group>"; };
 		4C8C6AE61ED2C65800346A1F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		4C8C6AE71ED2C65800346A1F /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		4C8C6AE91ED2C6CE00346A1F /* balloon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = balloon.jpeg; sourceTree = "<group>"; };
 		4C8C6AEB1ED2D83C00346A1F /* deer.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = deer.jpeg; sourceTree = "<group>"; };
+		4C8C6AF61ED3CC5300346A1F /* star.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star.jpeg; sourceTree = "<group>"; };
+		4C8C6AF81ED3D50E00346A1F /* building.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = building.jpeg; sourceTree = "<group>"; };
+		4C8C6AF91ED3D50E00346A1F /* mountain.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mountain.jpeg; sourceTree = "<group>"; };
+		4C8C6AFA1ED3D50E00346A1F /* lake.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lake.jpeg; sourceTree = "<group>"; };
+		4C8C6AFB1ED3D50E00346A1F /* lamp.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lamp.jpeg; sourceTree = "<group>"; };
+		4C8C6AFC1ED3D50E00346A1F /* mosaic.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mosaic.jpeg; sourceTree = "<group>"; };
+		4C8C6B051ED4155600346A1F /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
+		4C8C6B061ED4155600346A1F /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
+		4C8C6B071ED4155600346A1F /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		4CF063661EC0168E00E048C4 /* Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Template.h; sourceTree = "<group>"; };
 		4CF063671EC0168E00E048C4 /* Template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Template.m; sourceTree = "<group>"; };
 		4CF0636A1EC1A8CF00E048C4 /* TemplatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplatesViewController.h; sourceTree = "<group>"; };
@@ -119,6 +136,9 @@
 				4CF063711EC59F0E00E048C4 /* CollectionViewCell.h */,
 				4CF063721EC59F0E00E048C4 /* CollectionViewCell.m */,
 				4CF063731EC59F0E00E048C4 /* CollectionViewCell.xib */,
+				4C8C6B051ED4155600346A1F /* ImageCollectionViewCell.h */,
+				4C8C6B061ED4155600346A1F /* ImageCollectionViewCell.m */,
+				4C8C6B071ED4155600346A1F /* ImageCollectionViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -157,9 +177,15 @@
 		4C3176991EACDE600029C563 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C8C6AF81ED3D50E00346A1F /* building.jpeg */,
+				4C8C6AF91ED3D50E00346A1F /* mountain.jpeg */,
+				4C8C6AFA1ED3D50E00346A1F /* lake.jpeg */,
+				4C8C6AFB1ED3D50E00346A1F /* lamp.jpeg */,
+				4C8C6AFC1ED3D50E00346A1F /* mosaic.jpeg */,
+				4C8C6AF61ED3CC5300346A1F /* star.jpeg */,
 				4C8C6AEB1ED2D83C00346A1F /* deer.jpeg */,
 				4C8C6AE91ED2C6CE00346A1F /* balloon.jpeg */,
-				4C8C6AE31ED2C50300346A1F /* mountain.jpeg */,
+				4C8C6AE31ED2C50300346A1F /* fuji.jpeg */,
 				4C31769C1EACDE610029C563 /* AppDelegate.h */,
 				4C31769D1EACDE610029C563 /* AppDelegate.m */,
 				4C3176A21EACDE610029C563 /* Main.storyboard */,
@@ -273,12 +299,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C8C6AEC1ED2D83C00346A1F /* deer.jpeg in Resources */,
+				4C8C6AFD1ED3D50E00346A1F /* building.jpeg in Resources */,
+				4C8C6AFF1ED3D50E00346A1F /* lake.jpeg in Resources */,
+				4C8C6AF71ED3CC5300346A1F /* star.jpeg in Resources */,
 				4C8C6AEA1ED2C6CE00346A1F /* balloon.jpeg in Resources */,
+				4C8C6B011ED3D50E00346A1F /* mosaic.jpeg in Resources */,
 				4C3176A91EACDE610029C563 /* LaunchScreen.storyboard in Resources */,
 				4C3176A61EACDE610029C563 /* Assets.xcassets in Resources */,
 				4CF063751EC59F0E00E048C4 /* CollectionViewCell.xib in Resources */,
 				4C3176A41EACDE610029C563 /* Main.storyboard in Resources */,
-				4C8C6AE41ED2C50300346A1F /* mountain.jpeg in Resources */,
+				4C8C6B091ED4155600346A1F /* ImageCollectionViewCell.xib in Resources */,
+				4C8C6AFE1ED3D50E00346A1F /* mountain.jpeg in Resources */,
+				4C8C6AE41ED2C50300346A1F /* fuji.jpeg in Resources */,
+				4C8C6B001ED3D50E00346A1F /* lamp.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +377,7 @@
 				4C2E63F81EBB0AAF00CCF1C9 /* AddGestureView.m in Sources */,
 				4C3176B61EADA3DC0029C563 /* KLGestureRecoginzer.m in Sources */,
 				4C3176B21EADA2BB0029C563 /* GestureView.m in Sources */,
+				4C8C6B081ED4155600346A1F /* ImageCollectionViewCell.m in Sources */,
 				4CF063741EC59F0E00E048C4 /* CollectionViewCell.m in Sources */,
 				4C2E63F11EBAC51200CCF1C9 /* AddGestureViewController.m in Sources */,
 				4CF063681EC0168E00E048C4 /* Template.m in Sources */,

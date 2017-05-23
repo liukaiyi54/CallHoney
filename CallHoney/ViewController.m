@@ -19,6 +19,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) GestureView *gestureView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -28,6 +29,8 @@
     [super viewDidLoad];
     self.title = @"Draw & Call";
     [self.view addSubview:self.gestureView];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNotification:) name:@"ImageName" object:nil];
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
@@ -59,6 +62,10 @@
                               kCRToastTimeIntervalKey: @(0.6)
                               };
     [CRToastManager showNotificationWithOptions:options completionBlock:completionBlock];
+}
+
+- (void)didReceiveNotification:(NSNotification *)notification {
+    self.imageView.image = [UIImage imageNamed:notification.object];
 }
 
 - (GestureView *)gestureView {
