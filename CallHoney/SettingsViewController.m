@@ -26,7 +26,8 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
     
     [self configureCollectionView];
     
-    self.title = @"选择背景";
+    NSString *string = NSLocalizedString(@"Select Background", nil);
+    self.title = string;
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
     [self.navigationController setHidesNavigationBarHairline:YES];

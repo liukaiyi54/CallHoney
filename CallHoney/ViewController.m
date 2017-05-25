@@ -80,13 +80,15 @@
         __weak typeof(self) weakSelf = self;
         _gestureView.gestureViewBlock = ^(GestureView *view, float score, NSString *phoneNum) {
             if ([DataModel sharedInstance].templates.count == 0) {
-                [weakSelf showToastWithText:@"没有手势可以匹配哦" color:[UIColor flatYellowColor] completionBlock:^{
+                NSString *string = NSLocalizedString(@"No gesture to match", nil);
+                [weakSelf showToastWithText:string color:[UIColor flatYellowColor] completionBlock:^{
                     [view resetView];
                 }];
                 return;
             }
             if (score > 0.5) {
-                [weakSelf showToastWithText:@"没有匹配成功哦" color:[UIColor flatYellowColor] completionBlock:^{
+                NSString *string = NSLocalizedString(@"Match failed", nil);
+                [weakSelf showToastWithText:string color:[UIColor flatYellowColor] completionBlock:^{
                     [view resetView];
                 }];
                 return;

@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  CallHoney
+
+  Created by Michael on 25/05/2017.
+  Copyright © 2017 Michael. All rights reserved.
+*/
+"No gesture to match" = "没有手势可以匹配哦";
+"Match failed" = "匹配失败";
+"Enter contact number" = "输入联系人号码";
+"Add gesture" = "添加手势";
+"Draw a gesture pls" = "画个手势先";
+"Add a contact number pls" = "添加个号码先";
+"Gesture added" = "添加成功";
+"OK" = "OK";
+"Matches" = "对照表";
+"Select Background" = "选择背景";

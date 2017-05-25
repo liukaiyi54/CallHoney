@@ -27,15 +27,14 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"对照表";
+    NSString *string = NSLocalizedString(@"Matches", nil);
+    self.title = string;
     [self configureCollectionView];
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
     [self.navigationController setHidesNavigationBarHairline:YES];
     self.navigationController.navigationBar.barTintColor = [UIColor flatMintColor];
     self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
-    
-    self.navigationController.navigationBar.backItem.title = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated {

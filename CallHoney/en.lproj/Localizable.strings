@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  CallHoney
+
+  Created by Michael on 25/05/2017.
+  Copyright © 2017 Michael. All rights reserved.
+*/
+"No gesture to match" = "No gesture to match";
+"Match failed" = "Match failed";
+"Enter contact number" = "Enter phone num";
+"Add gesture" = "Add gesture";
+"Draw a gesture pls" = "Draw a gesture pls";
+"Add a contact number pls" = "Add a contact number pls";
+"Gesture added" = "Gesture added";
+"OK" = "OK";
+"Matches" = "Gestures";
+"Select Background" = "Select Background";

@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  CallHoney
+
+  Created by Michael on 25/05/2017.
+  Copyright © 2017 Michael. All rights reserved.
+*/
+"No gesture to match" = "Ningún gesto para coincidir";
+"Match failed" = "Coincidir falló";
+"Enter contact number" = "Introduzca el número";
+"Add gesture" = "Añadir gesto";
+"Draw a gesture pls" = "Dibuja un gesto";
+"Add a contact number pls" = "Añadir un número";
+"Gesture added" = "Gesto añadido";
+"OK" = "OK";
+"Matches" = "Gestos";
+"Select Background" = "Seleccionar fondo";

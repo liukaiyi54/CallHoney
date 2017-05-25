@@ -34,7 +34,8 @@
 
 - (void)viewDidLoad {
     [self setupForDismissKeyboard];
-    self.title = @"添加手势";
+    NSString *string = NSLocalizedString(@"Add gesture", nil);
+    self.title = string;
     
     UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(19, 71, CGRectGetWidth(self.view.frame)-38, CGRectGetWidth(self.view.frame)-38)];
     dummyView.layer.cornerRadius = 8.0f;
@@ -68,12 +69,14 @@
 
 - (void)didTapAddButton:(id)sender {
     if (!self.image) {
-        [self showToastWithText:@"好啥好？添加个手势先" color:[UIColor flatYellowColor] completionBlock:nil];
+        NSString *string = NSLocalizedString(@"Draw a gesture pls", nil);
+        [self showToastWithText:string color:[UIColor flatYellowColor] completionBlock:nil];
         return;
     }
     
     if (self.textField.text.length == 0) {
-        [self showToastWithText:@"好啥好？添加个手机号先" color:[UIColor flatYellowColor] completionBlock:nil];
+        NSString *string = NSLocalizedString(@"Add a contact number pls", nil);
+        [self showToastWithText:string color:[UIColor flatYellowColor] completionBlock:nil];
         return;
     }
     
@@ -89,7 +92,8 @@
         
         [[DataModel sharedInstance].templates setValue:template forKey:template.phoneNumber];
         [[DataModel sharedInstance] saveTemplates];
-        [self showToastWithText:@"添加成功" color:[UIColor flatSkyBlueColor] completionBlock:^{
+        NSString *string = NSLocalizedString(@"Gesture added", nil);
+        [self showToastWithText:string color:[UIColor flatSkyBlueColor] completionBlock:^{
             self.textField.text = @"";
             self.points = @[];
             self.image = nil;
@@ -168,7 +172,8 @@
         }
         _textField = [[UITextField alloc] initWithFrame:CGRectMake(22, CGRectGetMaxY(self.gestureView.frame) + 60, 180 - extraPaddingForSE, 44)];
         _textField.keyboardType = UIKeyboardTypePhonePad;
-        _textField.placeholder = @"输入联系人号码";
+        NSString *string = NSLocalizedString(@"Enter contact number", nil);
+        _textField.placeholder = string;
         _textField.borderStyle = UITextBorderStyleRoundedRect;
         _textField.rightViewMode = UITextFieldViewModeAlways;
         _textField.delegate = self;
@@ -188,7 +193,8 @@
 - (UIButton *)addButton {
     if (!_addButton) {
         _addButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.frame) - 20 - 78, CGRectGetMaxY(self.gestureView.frame) + 60, 78, 44)];
-        [_addButton setTitle:@"好了" forState:UIControlStateNormal];
+        NSString *string = NSLocalizedString(@"OK", nil);
+        [_addButton setTitle:string forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1] forState:UIControlStateNormal];
         [_addButton addTarget:self action:@selector(didTapAddButton:) forControlEvents:UIControlEventTouchUpInside];
         _addButton.layer.borderColor = [UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1].CGColor;

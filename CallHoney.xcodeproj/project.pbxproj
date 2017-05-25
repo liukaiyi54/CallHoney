@@ -11,6 +11,7 @@
 		4C2D76151ED67D970002D250 /* pink.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C2D76141ED67D970002D250 /* pink.jpg */; };
 		4C2D76171ED67EDD0002D250 /* love.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2D76161ED67EDD0002D250 /* love.png */; };
 		4C2D76271ED6B4970002D250 /* flower.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C2D76261ED6B4970002D250 /* flower.jpeg */; };
+		4C2D76361ED6BD240002D250 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C2D76381ED6BD240002D250 /* Localizable.strings */; };
 		4C2E63F11EBAC51200CCF1C9 /* AddGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E63EF1EBAC51200CCF1C9 /* AddGestureViewController.m */; };
 		4C2E63F51EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E63F41EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.m */; };
 		4C2E63F81EBB0AAF00CCF1C9 /* AddGestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2E63F71EBB0AAF00CCF1C9 /* AddGestureView.m */; };
@@ -48,6 +49,16 @@
 		4C2D76141ED67D970002D250 /* pink.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pink.jpg; sourceTree = "<group>"; };
 		4C2D76161ED67EDD0002D250 /* love.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = love.png; sourceTree = "<group>"; };
 		4C2D76261ED6B4970002D250 /* flower.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flower.jpeg; sourceTree = "<group>"; };
+		4C2D762D1ED6BC100002D250 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4C2D762E1ED6BC100002D250 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4C2D76371ED6BD240002D250 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4C2D76391ED6BD260002D250 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4C2D763A1ED6C3D00002D250 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		4C2D763B1ED6C3D10002D250 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4C2D763C1ED6C3D10002D250 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4C2D763D1ED6C7F20002D250 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		4C2D763E1ED6C7F20002D250 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4C2D763F1ED6C7F20002D250 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4C2E63EE1EBAC51200CCF1C9 /* AddGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGestureViewController.h; sourceTree = "<group>"; };
 		4C2E63EF1EBAC51200CCF1C9 /* AddGestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGestureViewController.m; sourceTree = "<group>"; };
 		4C2E63F31EBB051800CCF1C9 /* KLGestureRecoginzer+ArchiveTemplates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KLGestureRecoginzer+ArchiveTemplates.h"; sourceTree = "<group>"; };
@@ -179,6 +190,7 @@
 		4C3176991EACDE600029C563 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C2D76381ED6BD240002D250 /* Localizable.strings */,
 				4C2D76261ED6B4970002D250 /* flower.jpeg */,
 				4C2D76161ED67EDD0002D250 /* love.png */,
 				4C2D76141ED67D970002D250 /* pink.jpg */,
@@ -285,6 +297,9 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				fr,
+				es,
 			);
 			mainGroup = 4C31768D1EACDE600029C563;
 			productRefGroup = 4C3176971EACDE600029C563 /* Products */;
@@ -314,6 +329,7 @@
 				4C8C6B091ED4155600346A1F /* ImageCollectionViewCell.xib in Resources */,
 				4C2D76171ED67EDD0002D250 /* love.png in Resources */,
 				4C8C6AFE1ED3D50E00346A1F /* mountain.jpeg in Resources */,
+				4C2D76361ED6BD240002D250 /* Localizable.strings in Resources */,
 				4C8C6AE41ED2C50300346A1F /* fuji.jpeg in Resources */,
 				4C2D76271ED6B4970002D250 /* flower.jpeg in Resources */,
 			);
@@ -395,10 +411,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		4C2D76381ED6BD240002D250 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C2D76371ED6BD240002D250 /* en */,
+				4C2D76391ED6BD260002D250 /* zh-Hans */,
+				4C2D763C1ED6C3D10002D250 /* fr */,
+				4C2D763F1ED6C7F20002D250 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		4C3176A21EACDE610029C563 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4C3176A31EACDE610029C563 /* Base */,
+				4C2D762D1ED6BC100002D250 /* zh-Hans */,
+				4C2D763A1ED6C3D00002D250 /* fr */,
+				4C2D763D1ED6C7F20002D250 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -407,6 +437,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				4C3176A81EACDE610029C563 /* Base */,
+				4C2D762E1ED6BC100002D250 /* zh-Hans */,
+				4C2D763B1ED6C3D10002D250 /* fr */,
+				4C2D763E1ED6C7F20002D250 /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -418,6 +451,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -454,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -465,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -495,7 +530,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
