@@ -26,7 +26,7 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
     
     [self configureCollectionView];
     
-    self.title = @"Select Background";
+    self.title = @"选择背景";
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
     [self.navigationController setHidesNavigationBarHairline:YES];
@@ -65,7 +65,6 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     self.currentImageName = [self imageNames][indexPath.row];
 }
 
@@ -86,13 +85,14 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
 - (void)didTapCheck:(id)sender {
     if (self.currentImageName) {
           [[NSNotificationCenter defaultCenter] postNotificationName:@"ImageName" object:self.currentImageName];
+        [[NSUserDefaults standardUserDefaults] setObject:self.currentImageName forKey:@"ImageName"];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - getters
 - (NSArray *)imageNames {
-    return @[@"building.jpeg", @"mountain.jpeg", @"lake.jpeg", @"lamp.jpeg", @"mosaic.jpeg", @"star.jpeg", @"fuji.jpeg", @"balloon.jpeg"];
+    return @[@"building.jpeg", @"mountain.jpeg", @"pink.jpg", @"flower.jpeg", @"mosaic.jpeg", @"star.jpeg", @"fuji.jpeg", @"balloon.jpeg"];
 }
 
 @end

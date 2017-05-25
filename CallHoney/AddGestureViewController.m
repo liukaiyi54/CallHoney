@@ -34,7 +34,7 @@
 
 - (void)viewDidLoad {
     [self setupForDismissKeyboard];
-    self.title = @"添加手势与号码";
+    self.title = @"添加手势";
     
     UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(19, 71, CGRectGetWidth(self.view.frame)-38, CGRectGetWidth(self.view.frame)-38)];
     dummyView.layer.cornerRadius = 8.0f;
