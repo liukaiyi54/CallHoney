@@ -37,6 +37,7 @@
     [self.navigationController setHidesNavigationBarHairline:YES];
     self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Chalkduster" size:24], NSForegroundColorAttributeName: [UIColor flatWhiteColor]}];
     
     NSString *imageName = [[NSUserDefaults standardUserDefaults] objectForKey:@"ImageName"];
     if (imageName) {
