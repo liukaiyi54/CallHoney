@@ -131,7 +131,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="0bg-KP-JdL"/>
                     <navigationItem key="navigationItem" id="l0H-b7-hii">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="yDh-5G-DK7">
+                        <barButtonItem key="leftBarButtonItem" image="close" id="yDh-5G-DK7">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="didTapClose:" destination="omk-nF-N1a" id="Otb-yy-qWu"/>
@@ -190,7 +190,7 @@
                                 <segue destination="BYZ-38-t0r" kind="show" id="jeC-Fd-LYW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="ber-SY-GVk">
+                        <barButtonItem key="rightBarButtonItem" image="close" id="ber-SY-GVk">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="didTapClose:" destination="6Nz-Kd-u7v" id="dp2-0L-oYC"/>
@@ -263,6 +263,7 @@
     </scenes>
     <resources>
         <image name="checked" width="32" height="32"/>
+        <image name="close" width="16" height="16"/>
         <image name="edit_icon" width="20" height="20"/>
         <image name="flower.jpeg" width="2250" height="4000"/>
         <image name="settings_icon" width="20" height="20"/>

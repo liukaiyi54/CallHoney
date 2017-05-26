@@ -27,6 +27,7 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(didTapBack)];
     NSString *string = NSLocalizedString(@"Matches", nil);
     self.title = string;
     [self configureCollectionView];
@@ -118,6 +119,10 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
     [sender setImage:[UIImage imageNamed:self.showDeleteButton ? @"checked" : @"edit"]];
     
     [self.collectionView reloadData];
+}
+
+- (void)didTapBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

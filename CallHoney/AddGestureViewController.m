@@ -36,12 +36,11 @@
     [self setupForDismissKeyboard];
     NSString *string = NSLocalizedString(@"Add gesture", nil);
     self.title = string;
-    
+
     UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(19, 71, CGRectGetWidth(self.view.frame)-38, CGRectGetWidth(self.view.frame)-38)];
     dummyView.layer.cornerRadius = 8.0f;
     dummyView.layer.borderWidth = 1.0f;
     dummyView.layer.borderColor = [UIColor flatGrayColor].CGColor;
-    //dummyView.layer.borderColor = [UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1].CGColor;
     [self.view addSubview:dummyView];
     
     [self.view addSubview:self.gestureView];
@@ -55,8 +54,6 @@
     [self.navigationController setHidesNavigationBarHairline:YES];
     self.navigationController.navigationBar.barTintColor = [UIColor flatMintColor];
     self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
-    
-    
 }
 
 #pragma mark - event handler
@@ -180,7 +177,6 @@
         _textField.borderStyle = UITextBorderStyleRoundedRect;
         _textField.rightViewMode = UITextFieldViewModeAlways;
         _textField.delegate = self;
-        //_textField.layer.borderColor = [UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1].CGColor;
         _textField.layer.borderColor = [UIColor flatGrayColor].CGColor;
         _textField.layer.borderWidth = 1.0f;
         _textField.layer.cornerRadius = 4.0f;
@@ -203,9 +199,7 @@
         NSString *string = NSLocalizedString(@"OK", nil);
         [_addButton setTitle:string forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1] forState:UIControlStateNormal];
-        //[_addButton setTitleColor:[UIColor flatGrayColor] forState:UIControlStateNormal];
         [_addButton addTarget:self action:@selector(didTapAddButton:) forControlEvents:UIControlEventTouchUpInside];
-        //_addButton.layer.borderColor = [UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1].CGColor;
         _addButton.layer.borderColor = [UIColor flatGrayColor].CGColor;
         _addButton.layer.cornerRadius = 4.0f;
         _addButton.layer.borderWidth = 1.0f;
