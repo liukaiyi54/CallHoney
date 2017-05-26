@@ -38,7 +38,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balloon.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Jo1-Bd-dR4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Jo1-Bd-dR4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIM-uI-wlg">
@@ -262,9 +262,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="balloon.jpeg" width="721" height="1280"/>
         <image name="checked" width="32" height="32"/>
         <image name="edit_icon" width="20" height="20"/>
+        <image name="flower.jpeg" width="2250" height="4000"/>
         <image name="settings_icon" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -93,7 +93,7 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
 
 #pragma mark - getters
 - (NSArray *)imageNames {
-    return @[@"mountain.jpeg", @"flower.jpeg", @"mosaic.jpeg", @"star.jpeg", @"fuji.jpeg", @"balloon.jpeg", @"cloud.jpg", @"icepop.jpg"];
+    return @[@"mountain.jpeg", @"flower.jpeg", @"mosaic.jpeg", @"star.jpeg", @"fuji.jpeg", @"balloon.jpeg", @"cloud.jpg", @"sky.jpeg"];
 }
 
 @end

@@ -54,6 +54,8 @@
     [self.navigationController setHidesNavigationBarHairline:YES];
     self.navigationController.navigationBar.barTintColor = [UIColor flatMintColor];
     self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
+    
+    
 }
 
 #pragma mark - event handler
@@ -186,6 +188,9 @@
         [button setImage:[UIImage imageNamed:@"phone-book"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(didTapContactButton:) forControlEvents:UIControlEventTouchUpInside];
         _textField.rightView = button;
+        
+        UILabel *label = [_textField valueForKey:@"_placeholderLabel"];
+        label.adjustsFontSizeToFitWidth =YES;
     }
     return _textField;
 }
