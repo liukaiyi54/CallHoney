@@ -95,9 +95,16 @@
                 return;
             } else {
                 NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phoneNum]];
-                [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
+                NSString *version = [UIDevice currentDevice].systemVersion;
+                if (version.doubleValue >= 10.0) {
+                    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
+                        [view resetView];
+                    }];
+                } else {
+                    [[UIApplication sharedApplication] openURL:url];
                     [view resetView];
-                }];
+                }
+
             }
         };
     }
