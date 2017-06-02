@@ -12,10 +12,15 @@
 
 #import <ChameleonFramework/Chameleon.h>
 
+CGPoint midPoint(CGPoint p1, CGPoint p2) {
+    return CGPointMake((p1.x + p2.x) * 0.5, (p1.y + p2.y) * 0.5);
+}
+
 @interface GestureView() {
     KLGestureRecoginzer *recognizer;
     CGPoint center;
     float score, angle;
+    CGPoint previousPoint1, previousPoint2, currentPoint;
 }
 
 @property (nonatomic, strong) UIImage *image;
@@ -58,14 +63,12 @@
     CGContextSetRGBStrokeColor(ctx, 0.51, 0.85, 0.81, 1);
     CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 4.0);
     CGContextBeginPath(ctx);
+
+    CGPoint mid1 = midPoint(previousPoint1, previousPoint2);
+    CGPoint mid2 = midPoint(currentPoint, previousPoint1);
     
-    for (NSValue *pointValue in [recognizer touchPoints]) {
-        CGPoint pointInView = [pointValue CGPointValue];
-        if (pointValue == [[recognizer touchPoints] objectAtIndex:0])
-            CGContextMoveToPoint(ctx, pointInView.x, pointInView.y);
-        else
-            CGContextAddLineToPoint(ctx, pointInView.x, pointInView.y);
-    }
+    CGContextMoveToPoint(ctx, mid1.x, mid1.y);
+    CGContextAddQuadCurveToPoint(ctx, previousPoint1.x, previousPoint1.y, mid2.x, mid2.y);
     
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     self.image = UIGraphicsGetImageFromCurrentImageContext();
@@ -99,11 +102,15 @@
     [recognizer resetTouches];
     [recognizer addTouches:touches fromView:self];
     self.image = nil;
+    previousPoint1 = previousPoint2 = currentPoint = [[touches anyObject] locationInView:self];
     [self setNeedsDisplay];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     [recognizer addTouches:touches fromView:self];
+    previousPoint2 = previousPoint1;
+    previousPoint1 = currentPoint;
+    currentPoint = [[touches anyObject] locationInView:self];
     [self drawNewLine];
 }
 
