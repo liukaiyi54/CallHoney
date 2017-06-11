@@ -77,7 +77,11 @@
 - (GestureView *)gestureView {
     if (!_gestureView) {
         _gestureView = [[GestureView alloc] init];
-        _gestureView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+        CGRect frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+        if (CGRectGetWidth(self.view.bounds) >= 414) {
+            frame = CGRectMake(20, 64+80, CGRectGetWidth(self.view.frame)-40, CGRectGetHeight(self.view.frame)-200);
+        }
+        _gestureView.frame = frame;
         __weak typeof(self) weakSelf = self;
         _gestureView.gestureViewBlock = ^(GestureView *view, float score, NSString *phoneNum) {
             if ([DataModel sharedInstance].templates.count == 0) {

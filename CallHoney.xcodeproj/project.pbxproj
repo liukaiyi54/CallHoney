@@ -285,8 +285,8 @@
 				TargetAttributes = {
 					4C3176951EACDE600029C563 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = JTVP4Z7968;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 86UUNEZV42;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -542,12 +542,14 @@
 			baseConfigurationReference = 13BEA2E1A2A694C2561FB20D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JTVP4Z7968;
+				DEVELOPMENT_TEAM = 86UUNEZV42;
 				INFOPLIST_FILE = CallHoney/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelOpenSourceFactory.CallHoney;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelFunFactoryCompany.CallHoney;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c9fd664f-9da8-497a-8973-401d579a1a58";
+				PROVISIONING_PROFILE_SPECIFIER = CallHoneyDevProfile;
 			};
 			name = Debug;
 		};
@@ -556,12 +558,14 @@
 			baseConfigurationReference = 23542580A18C753BE627058F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JTVP4Z7968;
+				DEVELOPMENT_TEAM = 86UUNEZV42;
 				INFOPLIST_FILE = CallHoney/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelOpenSourceFactory.CallHoney;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelFunFactoryCompany.CallHoney;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c9fd664f-9da8-497a-8973-401d579a1a58";
+				PROVISIONING_PROFILE_SPECIFIER = CallHoneyDevProfile;
 			};
 			name = Release;
 		};
