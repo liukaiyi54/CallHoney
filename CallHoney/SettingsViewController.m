@@ -16,6 +16,7 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
 @interface SettingsViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, copy) NSString *currentImageName;
+@property (nonatomic, strong) UIButton *addButton;
 
 @end
 
@@ -25,6 +26,7 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
     [super viewDidLoad];
     
     [self configureCollectionView];
+    [self.collectionView addSubview:self.addButton];
     
     NSString *string = NSLocalizedString(@"Select Background", nil);
     self.title = string;
@@ -50,7 +52,7 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat screenWidth = CGRectGetWidth(self.view.frame);
-    return CGSizeMake(screenWidth/2-10, screenWidth/2+30.0);
+    return CGSizeMake(screenWidth/4-10, screenWidth/4+30.0);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
@@ -91,9 +93,23 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)didTapAdd:(id)sender {
+    
+}
+
 #pragma mark - getters
 - (NSArray *)imageNames {
     return @[@"mountain.jpeg", @"flower.jpeg", @"mosaic.jpeg", @"star.jpeg", @"fuji.jpeg", @"balloon.jpeg", @"cloud.jpg", @"sky.jpeg"];
+}
+
+- (UIButton *)addButton {
+    if (!_addButton) {
+        _addButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.bounds)/2-80, (CGRectGetWidth(self.view.bounds)/4+30)*2+80, 160, 60)];
+        [_addButton setTitle:@"Select From Local" forState:UIControlStateNormal];
+        [_addButton setTitleColor:[UIColor flatMintColor] forState:UIControlStateNormal];
+        [_addButton addTarget:self action:@selector(didTapAdd:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _addButton;
 }
 
 @end
