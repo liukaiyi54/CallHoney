@@ -13,10 +13,17 @@
 
 static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
 
-@interface SettingsViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface SettingsViewController () <
+    UICollectionViewDelegate,
+    UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout,
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate
+>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, copy) NSString *currentImageName;
 @property (nonatomic, strong) UIButton *addButton;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
@@ -26,6 +33,7 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
     [super viewDidLoad];
     
     [self configureCollectionView];
+    [self.collectionView addSubview:self.imageView];
     [self.collectionView addSubview:self.addButton];
     
     NSString *string = NSLocalizedString(@"Select Background", nil);
@@ -71,6 +79,12 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
     self.currentImageName = [self imageNames][indexPath.row];
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    self.imageView.image = image;
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - private
 - (void)configureCollectionView {
     self.collectionView.delegate = self;
@@ -94,7 +108,12 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
 }
 
 - (void)didTapAdd:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 #pragma mark - getters
@@ -104,12 +123,23 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
 
 - (UIButton *)addButton {
     if (!_addButton) {
-        _addButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.bounds)/2-80, (CGRectGetWidth(self.view.bounds)/4+30)*2+80, 160, 60)];
+        _addButton = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.view.bounds)/2-80, CGRectGetMaxY(self.imageView.frame)+10, 160, 60)];
         [_addButton setTitle:@"Select From Local" forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor flatMintColor] forState:UIControlStateNormal];
         [_addButton addTarget:self action:@selector(didTapAdd:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _addButton;
+}
+
+- (UIImageView *)imageView {
+    if (!_imageView) {
+        _imageView = [[UIImageView alloc] init];
+        CGFloat cellHeight = CGRectGetWidth(self.view.frame)/4 + 30;
+        CGFloat cellWidth = CGRectGetWidth(self.view.frame)/4 - 10;
+        _imageView.frame = CGRectMake((CGRectGetWidth(self.view.frame)-cellWidth)/2, (cellHeight+10)*2+10, cellWidth, cellHeight);
+        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    return _imageView;
 }
 
 @end

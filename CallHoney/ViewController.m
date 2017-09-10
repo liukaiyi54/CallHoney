@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "AddGestureViewController.h"
 
 #import "DataModel.h"
 #import "GestureView.h"
