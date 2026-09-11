@@ -8,6 +8,8 @@
 
 #import "KLGestureRecoginzer.h"
 
+#include <float.h>
+
 #define kSamplePointsCount (16)
 
 // Utility/Math Functions:
@@ -76,6 +78,10 @@ float DistanceAtBestAngle(CGPoint *samples, int samplePoints, CGPoint *template)
         int i;
         CGPoint samples[kSamplePointsCount];
         NSUInteger c = [[self touchPoints] count];
+        if (c == 0) {
+            if (outScore) *outScore = INFINITY;
+            return @{};
+        }
         
         // Load up the samples.  We use a very simplistic method for this; the JavaScript version is much more sophisticated.
         for (i = 0; i < kSamplePointsCount; i++)
@@ -97,7 +103,8 @@ float DistanceAtBestAngle(CGPoint *samples, int samplePoints, CGPoint *template)
             *outRadians = firstPointAngle;
         Rotate(samples, kSamplePointsCount, -firstPointAngle);
         
-        CGPoint lowerLeft, upperRight; // For finding the boundaries of the gesture
+        CGPoint lowerLeft = CGPointMake(INFINITY, INFINITY);
+        CGPoint upperRight = CGPointMake(-INFINITY, -INFINITY); // For finding the boundaries of the gesture
         for (i = 0; i < kSamplePointsCount; i++)
         {
             CGPoint pt = samples[i];
@@ -110,7 +117,12 @@ float DistanceAtBestAngle(CGPoint *samples, int samplePoints, CGPoint *template)
             if (pt.y > upperRight.y)
                 upperRight.y = pt.y;
         }
-        float scale = 2.0f/MAX(upperRight.x - lowerLeft.x, upperRight.y - lowerLeft.y);
+        CGFloat largestDimension = MAX(upperRight.x - lowerLeft.x, upperRight.y - lowerLeft.y);
+        if (largestDimension <= FLT_EPSILON) {
+            if (outScore) *outScore = INFINITY;
+            return @{};
+        }
+        float scale = 2.0f / largestDimension;
         Scale(samples, kSamplePointsCount, scale, scale);
         
         center = Centroid(samples, kSamplePointsCount);

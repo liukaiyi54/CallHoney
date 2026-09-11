@@ -14,12 +14,16 @@ static NSString *const kImageName = @"imageName";
 
 @implementation Template
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        self.phoneNumber = [aDecoder decodeObjectForKey:kPhoneNumber];
-        self.points = [aDecoder decodeObjectForKey:kPoints];
-        self.imageName = [aDecoder decodeObjectForKey:kImageName];
+        self.phoneNumber = [aDecoder decodeObjectOfClass:[NSString class] forKey:kPhoneNumber];
+        self.points = [aDecoder decodeObjectOfClasses:[NSSet setWithObjects:[NSArray class], [NSValue class], nil] forKey:kPoints];
+        self.imageName = [aDecoder decodeObjectOfClass:[NSString class] forKey:kImageName];
     }
     return self;
 }

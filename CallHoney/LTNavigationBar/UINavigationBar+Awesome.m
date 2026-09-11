@@ -24,14 +24,13 @@ static char overlayKey;
 
 - (void)lt_setBackgroundColor:(UIColor *)backgroundColor
 {
-    if (!self.overlay) {
-        [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        self.overlay = [[UIView alloc] initWithFrame:CGRectMake(0, -20, [UIScreen mainScreen].bounds.size.width, CGRectGetHeight(self.bounds) + 20)];
-        self.overlay.userInteractionEnabled = NO;
-        self.overlay.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-        [self insertSubview:self.overlay atIndex:0];
-    }
-    self.overlay.backgroundColor = backgroundColor;
+    UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
+    [appearance configureWithTransparentBackground];
+    appearance.backgroundColor = backgroundColor;
+    appearance.shadowColor = UIColor.clearColor;
+    self.standardAppearance = appearance;
+    self.scrollEdgeAppearance = appearance;
+    self.compactAppearance = appearance;
 }
 
 - (void)lt_setTranslationY:(CGFloat)translationY
@@ -41,23 +40,16 @@ static char overlayKey;
 
 - (void)lt_setElementsAlpha:(CGFloat)alpha
 {
-    [[self valueForKey:@"_leftViews"] enumerateObjectsUsingBlock:^(UIView *view, NSUInteger i, BOOL *stop) {
-        view.alpha = alpha;
-    }];
-    
-    [[self valueForKey:@"_rightViews"] enumerateObjectsUsingBlock:^(UIView *view, NSUInteger i, BOOL *stop) {
-        view.alpha = alpha;
-    }];
-    
-    UIView *titleView = [self valueForKey:@"_titleView"];
-    titleView.alpha = alpha;
+    self.alpha = alpha;
 }
 
 - (void)lt_reset
 {
-    [self setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.overlay removeFromSuperview];
-    self.overlay = nil;
+    UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
+    [appearance configureWithDefaultBackground];
+    self.standardAppearance = appearance;
+    self.scrollEdgeAppearance = appearance;
+    self.compactAppearance = appearance;
 }
 
 @end

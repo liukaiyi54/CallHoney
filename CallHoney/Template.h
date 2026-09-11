@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Template : NSObject<NSCoding>
+@interface Template : NSObject<NSSecureCoding>
 
 @property (nonatomic, copy) NSString *phoneNumber;
-@property (nonatomic, copy) NSArray *points;
+@property (nonatomic, copy) NSArray<NSValue *> *points;
 @property (nonatomic, copy) NSString *imageName;
 
 @end

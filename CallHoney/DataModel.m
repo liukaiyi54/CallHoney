@@ -44,20 +44,36 @@ static id _instance;
 }
 
 - (void)saveTemplates {
-    NSMutableData *data = [[NSMutableData alloc] init];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    [archiver encodeObject:self.templates forKey:@"Templates"];
-    [archiver finishEncoding];
-    [data writeToFile:[self dataFilePath] atomically:YES];
+    NSError *error = nil;
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.templates
+                                         requiringSecureCoding:YES
+                                                         error:&error];
+    if (!data || ![data writeToFile:[self dataFilePath] options:NSDataWritingAtomic error:&error]) {
+        NSLog(@"Unable to save templates: %@", error);
+    }
 }
 
 - (void)loadTemplates {
     NSString *path = [self dataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
-        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-        self.templates = [unarchiver decodeObjectForKey:@"Templates"];
-        [unarchiver finishDecoding];
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        NSSet *classes = [NSSet setWithObjects:[NSDictionary class], [NSMutableDictionary class],
+                          [NSString class], [Template class], [NSArray class], [NSMutableArray class],
+                          [NSValue class], nil];
+        NSError *error = nil;
+        NSDictionary *templates = [NSKeyedUnarchiver unarchivedObjectOfClasses:classes
+                                                                        fromData:data
+                                                                           error:&error];
+        if (!templates) {
+            NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
+            unarchiver.requiresSecureCoding = YES;
+            templates = [unarchiver decodeObjectOfClasses:classes forKey:@"Templates"];
+            [unarchiver finishDecoding];
+        }
+        self.templates = [templates isKindOfClass:[NSDictionary class]] ? [templates mutableCopy] : [NSMutableDictionary dictionary];
+        if (error) {
+            NSLog(@"Unable to load templates: %@", error);
+        }
     } else {
         self.templates = [[NSMutableDictionary alloc] init];
     }

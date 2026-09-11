@@ -7,13 +7,12 @@
 //
 
 #import "AddGestureViewController.h"
+#import "AppDelegate.h"
 #import "TemplatesViewController.h"
 
 #import "AddGestureView.h"
 
 #import "DataModel.h"
-#import "CRToast.h"
-#import <ChameleonFramework/Chameleon.h>
 
 #import <Contacts/Contacts.h>
 #import <ContactsUI/ContactsUI.h>
@@ -51,7 +50,6 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
-    [self.navigationController setHidesNavigationBarHairline:YES];
     self.navigationController.navigationBar.barTintColor = [UIColor flatMintColor];
     self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
 }
@@ -103,27 +101,13 @@
 }
 
 - (void)showToastWithText:(NSString *)text color:(UIColor *)color completionBlock:(void (^)(void))completionBlock {
-    NSDictionary *options = @{
-                              kCRToastTextKey : text,
-                              kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
-                              kCRToastBackgroundColorKey : color,
-                              kCRToastAnimationInTypeKey : @(CRToastAnimationTypeGravity),
-                              kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeGravity),
-                              kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
-                              kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionBottom),
-                              kCRToastNotificationTypeKey: @(CRToastTypeNavigationBar),
-                              kCRToastFontKey: [UIFont systemFontOfSize:16],
-                              kCRToastNotificationPresentationTypeKey: @(CRToastPresentationTypeCover),
-                              kCRToastTimeIntervalKey: @(1.0)
-                              };
-    [CRToastManager showNotificationWithOptions:options completionBlock:completionBlock];
+    CHShowToast(self.navigationController.view, text, color, 1.0, completionBlock);
 }
 
 #pragma mark - delegate
 - (void)contactPicker:(CNContactPickerViewController *)picker didSelectContact:(CNContact *)contact {
     CNPhoneNumber *num = contact.phoneNumbers.firstObject.value;
-    NSString *numStr = [num valueForKey:@"digits"];
-    self.textField.text = numStr;
+    self.textField.text = num.stringValue;
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
@@ -187,8 +171,8 @@
         [button addTarget:self action:@selector(didTapContactButton:) forControlEvents:UIControlEventTouchUpInside];
         _textField.rightView = button;
         
-        UILabel *label = [_textField valueForKey:@"_placeholderLabel"];
-        label.adjustsFontSizeToFitWidth =YES;
+        _textField.font = [UIFont systemFontOfSize:16.0];
+        _textField.adjustsFontSizeToFitWidth = YES;
     }
     return _textField;
 }

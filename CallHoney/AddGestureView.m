@@ -7,7 +7,6 @@
 //
 
 #import "AddGestureView.h"
-#import <ChameleonFramework/Chameleon.h>
 #import "KLGestureRecoginzer+ArchiveTemplates.h"
 
 @interface AddGestureView() {
@@ -88,8 +87,15 @@
     [self setNeedsDisplay];
 }
 
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesCancelled:touches withEvent:event];
+    [self resetView];
+}
+
 - (void)resetView {
     [recognizer resetTouches];
+    self.image = nil;
+    self.endDrawing = NO;
     [self setNeedsDisplay];
 }
 

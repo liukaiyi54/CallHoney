@@ -7,13 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
 
 #import "DataModel.h"
 #import "GestureView.h"
-#import "CRToast.h"
 #import "UINavigationBar+Awesome.h"
-
-#import <ChameleonFramework/Chameleon.h>
 
 @interface ViewController ()
 
@@ -24,6 +22,16 @@
 
 @implementation ViewController
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UIViewController *destination = segue.destinationViewController;
+    if ([destination isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navigationController = (UINavigationController *)destination;
+        navigationController.modalPresentationStyle = UIModalPresentationFullScreen;
+        navigationController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        navigationController.modalInPresentation = YES;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Draw & Call";
@@ -33,14 +41,15 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
-    [self.navigationController setHidesNavigationBarHairline:YES];
     self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Chalkduster" size:24], NSForegroundColorAttributeName: [UIColor flatWhiteColor]}];
     
     NSString *imageName = [[NSUserDefaults standardUserDefaults] objectForKey:@"ImageName"];
     if (imageName) {
-        self.imageView.image = [UIImage imageNamed:imageName];
+        self.imageView.image = [UIImage imageNamed:imageName] ?: [UIImage imageWithContentsOfFile:
+            [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject
+             stringByAppendingPathComponent:imageName]];
     }
 }
 
@@ -53,24 +62,14 @@
 }
 
 - (void)showToastWithText:(NSString *)text color:(UIColor *)color completionBlock:(void (^)(void))completionBlock{
-    NSDictionary *options = @{
-                              kCRToastTextKey : text,
-                              kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
-                              kCRToastBackgroundColorKey : color,
-                              kCRToastAnimationInTypeKey : @(CRToastAnimationTypeGravity),
-                              kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeGravity),
-                              kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
-                              kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionBottom),
-                              kCRToastNotificationTypeKey: @(CRToastTypeNavigationBar),
-                              kCRToastFontKey: [UIFont systemFontOfSize:16],
-                              kCRToastNotificationPresentationTypeKey: @(CRToastPresentationTypeCover),
-                              kCRToastTimeIntervalKey: @(0.6)
-                              };
-    [CRToastManager showNotificationWithOptions:options completionBlock:completionBlock];
+    CHShowToast(self.navigationController.view, text, color, 0.6, completionBlock);
 }
 
 - (void)didReceiveNotification:(NSNotification *)notification {
-    self.imageView.image = [UIImage imageNamed:notification.object];
+    NSString *imageName = notification.object;
+    self.imageView.image = [UIImage imageNamed:imageName] ?: [UIImage imageWithContentsOfFile:
+        [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject
+         stringByAppendingPathComponent:imageName]];
 }
 
 - (GestureView *)gestureView {
@@ -97,14 +96,13 @@
                 }];
                 return;
             } else {
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phoneNum]];
-                NSString *version = [UIDevice currentDevice].systemVersion;
-                if (version.doubleValue >= 10.0) {
+                NSString *phone = [phoneNum stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", phone]];
+                if ([[UIApplication sharedApplication] canOpenURL:url]) {
                     [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
                         [view resetView];
                     }];
                 } else {
-                    [[UIApplication sharedApplication] openURL:url];
                     [view resetView];
                 }
 
@@ -112,6 +110,10 @@
         };
     }
     return _gestureView;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ImageName" object:nil];
 }
 
 @end

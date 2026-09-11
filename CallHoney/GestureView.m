@@ -10,7 +10,6 @@
 #import "KLGestureRecoginzer+ArchiveTemplates.h"
 #import "DataModel.h"
 
-#import <ChameleonFramework/Chameleon.h>
 
 CGPoint midPoint(CGPoint p1, CGPoint p2) {
     return CGPointMake((p1.x + p2.x) * 0.5, (p1.y + p2.y) * 0.5);
@@ -94,6 +93,7 @@ CGPoint midPoint(CGPoint p1, CGPoint p2) {
 - (void)resetView {
     [recognizer resetTouches];
     self.image = nil;
+    self.fingerMoved = NO;
     [self setNeedsDisplay];
 }
 
@@ -118,6 +118,11 @@ CGPoint midPoint(CGPoint p1, CGPoint p2) {
     [recognizer addTouches:touches fromView:self];
     [self drawNewLine];
     [self processGestureData];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesCancelled:touches withEvent:event];
+    [self resetView];
 }
 
 @end

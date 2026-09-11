@@ -7,7 +7,7 @@
 //
 
 #import "TemplatesViewController.h"
-#import <ChameleonFramework/Chameleon.h>
+#import "AppDelegate.h"
 
 #import "DataModel.h"
 #import "Template.h"
@@ -33,7 +33,6 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
     [self configureCollectionView];
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
-    [self.navigationController setHidesNavigationBarHairline:YES];
     self.navigationController.navigationBar.barTintColor = [UIColor flatMintColor];
     self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
 }
@@ -59,15 +58,15 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [DataModel sharedInstance].templates.count;
+    return self.orderedTemplateKeys.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCollectionViewCell forIndexPath:indexPath];
     cell.delegate = self;
     
-    NSDictionary *templates = [DataModel sharedInstance].templates;
-    Template *template = templates.allValues[indexPath.row];
+    NSString *key = self.orderedTemplateKeys[indexPath.row];
+    Template *template = [DataModel sharedInstance].templates[key];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent: template.imageName];
@@ -92,7 +91,10 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
 - (void)deleteCell:(CollectionViewCell *)cell {
     [self.collectionView performBatchUpdates:^{
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-        NSString *key = [DataModel sharedInstance].templates.allKeys[indexPath.row];
+        if (!indexPath || indexPath.item >= self.orderedTemplateKeys.count) {
+            return;
+        }
+        NSString *key = self.orderedTemplateKeys[indexPath.item];
         [[DataModel sharedInstance].templates removeObjectForKey:key];
         [[DataModel sharedInstance] saveTemplates];
         
@@ -103,6 +105,10 @@ static NSString *const kCollectionViewCell = @"kCollectionViewCell";
             self.navigationItem.rightBarButtonItem = nil;
         }
     }];
+}
+
+- (NSArray<NSString *> *)orderedTemplateKeys {
+    return [[DataModel sharedInstance].templates.allKeys sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
 }
 
 #pragma mark -

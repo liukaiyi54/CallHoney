@@ -15,3 +15,12 @@
 
 @end
 
+@interface UIColor (CallHoney)
++ (UIColor *)flatMintColor;
++ (UIColor *)flatWhiteColor;
++ (UIColor *)flatGrayColor;
++ (UIColor *)flatYellowColor;
++ (UIColor *)flatSkyBlueColor;
+@end
+
+void CHShowToast(UIView *view, NSString *text, UIColor *color, NSTimeInterval duration, void (^completion)(void));

@@ -9,7 +9,7 @@
 #import "SettingsViewController.h"
 #import "ImageCollectionViewCell.h"
 
-#import <ChameleonFramework/Chameleon.h>
+#import "AppDelegate.h"
 
 static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
 
@@ -24,6 +24,7 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
 @property (nonatomic, copy) NSString *currentImageName;
 @property (nonatomic, strong) UIButton *addButton;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, copy) NSString *customImageName;
 
 @end
 
@@ -35,12 +36,18 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
     [self configureCollectionView];
     [self.collectionView addSubview:self.imageView];
     [self.collectionView addSubview:self.addButton];
+
+    self.customImageName = @"custom-background.jpg";
+    NSString *savedImageName = [[NSUserDefaults standardUserDefaults] objectForKey:@"ImageName"];
+    if ([savedImageName isEqualToString:self.customImageName]) {
+        self.imageView.image = [UIImage imageWithContentsOfFile:[self documentsPathForFileName:self.customImageName]];
+        self.currentImageName = self.imageView.image ? self.customImageName : nil;
+    }
     
     NSString *string = NSLocalizedString(@"Select Background", nil);
     self.title = string;
     [self.navigationController.navigationBar setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor flatWhiteColor]}];
-    [self.navigationController setHidesNavigationBarHairline:YES];
     self.navigationController.navigationBar.barTintColor = [UIColor flatMintColor];
     self.navigationController.navigationBar.tintColor = [UIColor flatWhiteColor];
     
@@ -55,7 +62,7 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self imageNames].count;
+    return self.imageNames.count + 1;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,19 +76,34 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kImageCollectionViewCell forIndexPath:indexPath];
-    NSString *imageName = [[self imageNames] objectAtIndex:indexPath.row];
+    if (indexPath.item == self.imageNames.count) {
+        cell.image = self.imageView.image;
+        return cell;
+    }
+    NSString *imageName = self.imageNames[indexPath.item];
     cell.image = [UIImage imageNamed:imageName];
     
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    self.currentImageName = [self imageNames][indexPath.row];
+    if (indexPath.item == self.imageNames.count) {
+        self.currentImageName = self.customImageName;
+        return;
+    }
+    self.currentImageName = self.imageNames[indexPath.item];
+    self.imageView.image = [UIImage imageNamed:self.currentImageName];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    UIImage *image = info[UIImagePickerControllerEditedImage] ?: info[UIImagePickerControllerOriginalImage];
     self.imageView.image = image;
+    self.customImageName = @"custom-background.jpg";
+    self.currentImageName = self.customImageName;
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
+    NSString *path = [self documentsPathForFileName:self.customImageName];
+    [imageData writeToFile:path options:NSDataWritingAtomic error:nil];
+    [self.collectionView reloadData];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -138,8 +160,16 @@ static NSString *const kImageCollectionViewCell = @"kImageCollectionViewCell";
         CGFloat cellWidth = CGRectGetWidth(self.view.frame)/4 - 10;
         _imageView.frame = CGRectMake((CGRectGetWidth(self.view.frame)-cellWidth)/2, (cellHeight+10)*2+10, cellWidth, cellHeight);
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.layer.cornerRadius = 6.0f;
+        _imageView.clipsToBounds = YES;
+        _imageView.userInteractionEnabled = NO;
     }
     return _imageView;
+}
+
+- (NSString *)documentsPathForFileName:(NSString *)fileName {
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject
+            stringByAppendingPathComponent:fileName];
 }
 
 @end

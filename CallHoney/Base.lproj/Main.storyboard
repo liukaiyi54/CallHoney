@@ -53,8 +53,8 @@
                             <constraint firstItem="OIM-uI-wlg" firstAttribute="top" secondItem="sPt-4Z-EeP" secondAttribute="top" id="DcB-Tq-DJs"/>
                             <constraint firstItem="Jo1-Bd-dR4" firstAttribute="leading" secondItem="sPt-4Z-EeP" secondAttribute="leading" id="UNU-k1-PoR"/>
                             <constraint firstItem="OIM-uI-wlg" firstAttribute="leading" secondItem="sPt-4Z-EeP" secondAttribute="leading" id="YRP-jm-322"/>
-                            <constraint firstItem="ivn-Jr-SLa" firstAttribute="top" secondItem="Jo1-Bd-dR4" secondAttribute="bottom" id="ctl-7a-tGW"/>
-                            <constraint firstItem="ivn-Jr-SLa" firstAttribute="top" secondItem="OIM-uI-wlg" secondAttribute="bottom" id="qGZ-FD-Vqk"/>
+                            <constraint firstItem="Jo1-Bd-dR4" firstAttribute="bottom" secondItem="sPt-4Z-EeP" secondAttribute="bottom" id="ctl-7a-tGW"/>
+                            <constraint firstItem="OIM-uI-wlg" firstAttribute="bottom" secondItem="sPt-4Z-EeP" secondAttribute="bottom" id="qGZ-FD-Vqk"/>
                             <constraint firstAttribute="trailing" secondItem="Jo1-Bd-dR4" secondAttribute="trailing" id="wfw-f8-pV6"/>
                         </constraints>
                     </view>
@@ -201,23 +201,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2G-XA-eZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-550" y="-989"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="IEq-0T-4fq">
-            <objects>
-                <navigationController id="mQ8-LX-6pB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="aX0-wF-vvc"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ttf-oN-SoS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="LLd-ii-6f6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pqh-r7-G8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1388" y="-18"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="tne-QT-ifu">

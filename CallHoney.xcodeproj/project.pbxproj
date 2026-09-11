@@ -38,12 +38,9 @@
 		4CF0636D1EC1A8CF00E048C4 /* TemplatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF0636B1EC1A8CF00E048C4 /* TemplatesViewController.m */; };
 		4CF063741EC59F0E00E048C4 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF063721EC59F0E00E048C4 /* CollectionViewCell.m */; };
 		4CF063751EC59F0E00E048C4 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CF063731EC59F0E00E048C4 /* CollectionViewCell.xib */; };
-		6BC9A3FFCC0768CB4FCCCCF9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA67621067B2711B68F79E2E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13BEA2E1A2A694C2561FB20D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		23542580A18C753BE627058F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4C1A7FA21ED0A06600E188F8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		4C1A7FA31ED0A06600E188F8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		4C2D76161ED67EDD0002D250 /* love.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = love.png; sourceTree = "<group>"; };
@@ -100,7 +97,6 @@
 		4CF063711EC59F0E00E048C4 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		4CF063721EC59F0E00E048C4 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		4CF063731EC59F0E00E048C4 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
-		BA67621067B2711B68F79E2E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,22 +104,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BC9A3FFCC0768CB4FCCCCF9 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		219D5F0A8DD8D56AA31F6339 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				13BEA2E1A2A694C2561FB20D /* Pods.debug.xcconfig */,
-				23542580A18C753BE627058F /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		4C2E63F91EBB1E6100CCF1C9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,8 +147,6 @@
 			children = (
 				4C3176981EACDE600029C563 /* CallHoney */,
 				4C3176971EACDE600029C563 /* Products */,
-				219D5F0A8DD8D56AA31F6339 /* Pods */,
-				D01939B089868BC5C357AC78 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,14 +227,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		D01939B089868BC5C357AC78 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BA67621067B2711B68F79E2E /* Pods.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,12 +234,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C3176AD1EACDE610029C563 /* Build configuration list for PBXNativeTarget "CallHoney" */;
 			buildPhases = (
-				B9EF58307EE8B1CD222B9BFB /* Check Pods Manifest.lock */,
 				4C3176921EACDE600029C563 /* Sources */,
 				4C3176931EACDE600029C563 /* Frameworks */,
 				4C3176941EACDE600029C563 /* Resources */,
-				3FFA15E1404BECDEE1B64E9A /* Embed Pods Frameworks */,
-				D1CA504E58FA43F22463757B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -286,7 +259,7 @@
 					4C3176951EACDE600029C563 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 86UUNEZV42;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -336,54 +309,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		3FFA15E1404BECDEE1B64E9A /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B9EF58307EE8B1CD222B9BFB /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D1CA504E58FA43F22463757B /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4C3176921EACDE600029C563 /* Sources */ = {
@@ -488,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -530,7 +455,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -539,33 +464,29 @@
 		};
 		4C3176AE1EACDE610029C563 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13BEA2E1A2A694C2561FB20D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 86UUNEZV42;
 				INFOPLIST_FILE = CallHoney/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelFunFactoryCompany.CallHoney;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c9fd664f-9da8-497a-8973-401d579a1a58";
-				PROVISIONING_PROFILE_SPECIFIER = CallHoneyDevProfile;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		4C3176AF1EACDE610029C563 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23542580A18C753BE627058F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 86UUNEZV42;
 				INFOPLIST_FILE = CallHoney/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelFunFactoryCompany.CallHoney;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c9fd664f-9da8-497a-8973-401d579a1a58";
-				PROVISIONING_PROFILE_SPECIFIER = CallHoneyDevProfile;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

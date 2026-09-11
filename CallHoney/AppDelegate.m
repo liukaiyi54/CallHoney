@@ -46,3 +46,42 @@
 
 
 @end
+
+@implementation UIColor (CallHoney)
+
++ (UIColor *)flatMintColor { return [UIColor colorWithRed:0.51 green:0.85 blue:0.81 alpha:1.0]; }
++ (UIColor *)flatWhiteColor { return UIColor.whiteColor; }
++ (UIColor *)flatGrayColor { return [UIColor colorWithWhite:0.75 alpha:1.0]; }
++ (UIColor *)flatYellowColor { return [UIColor colorWithRed:0.98 green:0.80 blue:0.30 alpha:1.0]; }
++ (UIColor *)flatSkyBlueColor { return [UIColor colorWithRed:0.35 green:0.70 blue:0.90 alpha:1.0]; }
+
+@end
+
+void CHShowToast(UIView *view, NSString *text, UIColor *color, NSTimeInterval duration, void (^completion)(void)) {
+    UILabel *toast = [[UILabel alloc] init];
+    toast.translatesAutoresizingMaskIntoConstraints = NO;
+    toast.text = text;
+    toast.textColor = UIColor.whiteColor;
+    toast.backgroundColor = color;
+    toast.textAlignment = NSTextAlignmentCenter;
+    toast.font = [UIFont systemFontOfSize:16.0];
+    toast.numberOfLines = 0;
+    toast.layer.cornerRadius = 8.0;
+    toast.clipsToBounds = YES;
+    [view addSubview:toast];
+    [NSLayoutConstraint activateConstraints:@[
+        [toast.leadingAnchor constraintEqualToAnchor:view.leadingAnchor constant:20.0],
+        [toast.trailingAnchor constraintEqualToAnchor:view.trailingAnchor constant:-20.0],
+        [toast.topAnchor constraintEqualToAnchor:view.safeAreaLayoutGuide.topAnchor constant:8.0],
+        [toast.heightAnchor constraintGreaterThanOrEqualToConstant:44.0]
+    ]];
+    toast.alpha = 0.0;
+    [UIView animateWithDuration:0.2 animations:^{ toast.alpha = 1.0; } completion:^(BOOL finished) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.2 animations:^{ toast.alpha = 0.0; } completion:^(BOOL finished) {
+                [toast removeFromSuperview];
+                if (completion) completion();
+            }];
+        });
+    }];
+}

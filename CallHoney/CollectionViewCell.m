@@ -8,7 +8,7 @@
 
 #import "CollectionViewCell.h"
 
-#import <ChameleonFramework/Chameleon.h>
+#import "AppDelegate.h"
 
 @interface CollectionViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
